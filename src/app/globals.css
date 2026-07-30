@@ -44,7 +44,6 @@
   --color-out: var(--out);
   --color-zay: var(--zay);
   --font-sans: var(--font-body), "DM Sans", system-ui, sans-serif;
-  --font-mono: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
 }
 
 *,
