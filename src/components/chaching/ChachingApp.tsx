@@ -283,10 +283,6 @@ export const ChachingApp = () => {
           </div>
         </div>
 
-        <span className="absolute top-14 right-[18px] z-[45] rounded bg-[var(--late-soft)] px-[7px] py-[3px] font-[family-name:var(--font-mono)] text-[9px] font-semibold tracking-[0.08em] text-late">
-          V3
-        </span>
-
         <main className="cha-scrollbar-none content flex-1 overflow-x-hidden overflow-y-auto px-[18px] pt-1 pb-9">
           <div className="mb-1.5 flex items-baseline justify-between">
             <div className="font-[family-name:var(--font-display)] text-[28px] leading-none tracking-[-0.02em] text-ink">
