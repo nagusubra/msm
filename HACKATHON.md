@@ -1,5 +1,18 @@
 Prompt: "Build something that goes beyond the typical budget feature of money in / money out — imagine what a worker who earns daily would actually find valuable when managing their day-to-day earnings in a budgeting tool."
 
+## Our pitch (ChaChing) — dual revenue beyond budgeting
+
+ChaChing is not another money-in / money-out ledger. It surfaces **timing gaps** for daily earners, then closes them with **same-day job opportunities** and/or **Zayzoon earned-wage advances**, plus social accountability.
+
+**Unique value proposition:** the product creates an **additional revenue stream for both sides** —
+
+- **Workers** earn from gigs matched to today’s shortfall
+- **Zayzoon** earns **placement commissions** on jobs ChaChing fills for those users (and advance fees when they choose early wage access)
+
+That partner flywheel is how we go beyond a typical budgeting tool — valuable for the daily earner *and* for the wage-access partner.
+
+**Portal description (copy/paste):** see README → “Submission description”.
+
 Judging Process
 How projects are evaluated — from submission to final results
 

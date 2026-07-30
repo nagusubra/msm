@@ -2,6 +2,7 @@
   "name": "msm",
   "version": "0.1.0",
   "private": true,
+  "description": "ChaChing — beyond budgeting for daily earners. Close timing gaps with same-day gigs and Zayzoon advances; workers gain income, Zayzoon gains job-placement commissions.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

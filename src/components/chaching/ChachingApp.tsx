@@ -317,7 +317,8 @@ export const ChachingApp = () => {
             </h1>
             <p className="relative mt-2 mb-3.5 max-w-[32ch] text-[13px] leading-[1.4] text-[rgba(247,244,239,0.68)]">
               You earn enough this month. Rent hits Friday — pay lands Saturday.
-              Close it with a gig or an advance.
+              Close it with a gig (you earn; Zayzoon gets a placement commission)
+              or an advance.
             </p>
             <div className="relative grid grid-cols-2 gap-2">
               <button
@@ -503,7 +504,9 @@ export const ChachingApp = () => {
                 <p className="mb-3 text-[12px] leading-[1.4] text-fog">
                   Pull ${GAP_AMOUNT} of wages you&apos;ve already worked —
                   available instantly. Repaid from Saturday&apos;s deposit.
-                  There&apos;s a fee.
+                  Prefer to earn it instead? Take the gig path — you get paid,
+                  Zayzoon earns a placement commission. Beyond budgeting for both
+                  sides.
                 </p>
                 <ZayRow
                   label="Amount available"
@@ -586,15 +589,16 @@ export const ChachingApp = () => {
                 </div>
                 <div>
                   <strong className="mb-0.5 block text-[13px] text-ink">
-                    Extra gigs → high-interest Vault
+                    You earn · Zayzoon commissions
                   </strong>
                   <p className="m-0 text-[12px] leading-[1.4] text-fog">
-                    Gap gigs cover Friday. Anything beyond deposits straight into
-                    your Chaching Vault at{" "}
+                    Gap gigs pay you to cover Friday. Zayzoon earns a placement
+                    commission on jobs filled here — extra revenue for both sides.
+                    Anything beyond deposits into your Chaching Vault at{" "}
                     <span className="font-[family-name:var(--font-mono)] font-semibold text-[#0284c7]">
                       {VAULT_APY} APY
-                    </span>{" "}
-                    — not your checking.
+                    </span>
+                    .
                   </p>
                 </div>
               </div>
