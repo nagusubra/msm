@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Chaching v3 — Timing</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="island"></div>
+        <div class="status">
+          <span>9:41</span>
+          <div class="status-right">
+            <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><rect x="0" y="3" width="3" height="8" fill="#12161c"/><rect x="4" y="2" width="3" height="9" fill="#12161c"/><rect x="8" y="0" width="3" height="11" fill="#12161c"/><rect x="12" y="0" width="3" height="11" fill="#12161c" opacity="0.3"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" aria-hidden="true"><rect x="0.5" y="0.5" width="20" height="11" rx="2" stroke="#12161c" fill="none" opacity="0.5"/><rect x="2" y="2" width="15" height="8" rx="1" fill="#12161c"/><path d="M22 3.5v5a1.5 1.5 0 0 0 0-5z" fill="#12161c" opacity="0.4"/></svg>
+          </div>
+        </div>
+        <span class="v3-tag">V3</span>
+
+        <main class="content">
+          <div class="brand-row">
+            <div class="brand">Cha<em>ching</em></div>
+            <div class="cycle" id="cycleLabel">Apr 27 – May 3</div>
+          </div>
+
+          <section class="gap-hero" aria-label="Cash gap">
+            <div class="eyebrow">Timing · not totals</div>
+            <h1>You have a <em>$312 gap</em></h1>
+            <p class="lede">
+              You earn enough this month. Rent hits Friday — pay lands Saturday.
+              Close it with a gig or an advance.
+            </p>
+            <div class="gap-actions">
+              <button type="button" class="gap-btn gig" id="pathGig" aria-pressed="false">
+                <span class="lbl">$0 fee</span>
+                <span class="name">Gig</span>
+                <span class="fee">Stack shifts → $312</span>
+              </button>
+              <button type="button" class="gap-btn advance" id="pathZay" aria-pressed="false">
+                <span class="lbl">Zayzoon</span>
+                <span class="name">Advance</span>
+                <span class="fee">$312 now · fee $4.99</span>
+              </button>
+            </div>
+          </section>
+
+          <section class="week-card" aria-label="Cash in vs out chart">
+            <div class="week-head">
+              <h2 id="chartTitle">This week · in vs out</h2>
+              <div class="range-toggle" role="group" aria-label="Chart range">
+                <button type="button" class="on" id="btnWeek" aria-pressed="true">Week</button>
+                <button type="button" id="btnMonth" aria-pressed="false">Month</button>
+              </div>
+            </div>
+            <div class="legend-row">
+              <div class="legend-item"><i class="in"></i> Income</div>
+              <div class="legend-item"><i class="out"></i> Expenses</div>
+              <div class="legend-item"><i class="gap"></i> Gap</div>
+            </div>
+
+            <div class="chart-frame">
+              <div class="y-axis" id="yAxis" aria-hidden="true">
+                <span>$2.1k</span>
+                <span>$1.4k</span>
+                <span>$700</span>
+                <span>$0</span>
+              </div>
+              <div class="chart-plot">
+                <div class="chart-grid" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+                <div class="days" id="days" role="list"></div>
+              </div>
+            </div>
+
+            <p class="week-note" id="chartNote">
+              <strong>Fri May 1:</strong> Rent + phone (−$2,122). Cash on hand isn’t enough.
+              <strong>Sat May 2:</strong> +$672 lands — one day late.
+            </p>
+
+            <div class="day-detail" id="dayDetail" aria-live="polite"></div>
+          </section>
+
+          <section class="panel" id="panelZay" aria-label="Zayzoon advance">
+            <div class="panel-card">
+              <h3>Zayzoon · early wage access</h3>
+              <p class="lede">
+                Pull $312 of wages you’ve already worked — available instantly.
+                Repaid from Saturday’s deposit. There’s a fee.
+              </p>
+              <div class="zay-row">
+                <span class="lbl">Amount available</span>
+                <span class="val ok">$312.00</span>
+              </div>
+              <div class="zay-row">
+                <span class="lbl">Transfer fee</span>
+                <span class="val fee">−$4.99</span>
+              </div>
+              <div class="zay-row">
+                <span class="lbl">You receive today</span>
+                <span class="val">$307.01</span>
+              </div>
+              <div class="zay-row">
+                <span class="lbl">Repaid</span>
+                <span class="val">Sat May 2 deposit</span>
+              </div>
+              <div class="zay-row" id="zayNotifyRow">
+                <span class="lbl">Friend notified</span>
+                <span class="val" id="zayNotifyVal">Add a friend first</span>
+              </div>
+              <button type="button" class="btn zay" id="btnZay">
+                Pull $312 with Zayzoon
+              </button>
+              <button type="button" class="btn ghost" id="btnZayBack">
+                Compare gig path instead
+              </button>
+            </div>
+            <div class="toast zay" id="toastZay">
+              <strong>Advance started · fee $4.99</strong>
+              $307.01 on the way. Gap covered for Friday — Saturday deposit pays it back.
+            </div>
+          </section>
+
+          <section class="panel" id="panelGig" aria-label="Gig slate">
+            <div class="slate-head">
+              <h3>Gig slate · close gap, then save</h3>
+              <span class="meta">STACK TO $312+</span>
+            </div>
+
+            <div class="vault-callout">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2M12 13v2"/></svg>
+              </div>
+              <div>
+                <strong>Extra gigs → high-interest Vault</strong>
+                <p>
+                  Gap gigs cover Friday. Anything beyond deposits straight into your
+                  Chaching Vault at <span class="apy">4.50% APY</span> — not your checking.
+                </p>
+              </div>
+            </div>
+
+            <div class="meter" aria-live="polite">
+              <div class="meter-top">
+                <span class="need">Gap <strong>$312</strong> · Vault <strong id="vaultNeed">$0</strong></span>
+                <span class="got" id="meterGot">$0 selected</span>
+              </div>
+              <div class="track" id="meterTrack" aria-hidden="true">
+                <i id="seg1" style="width: 0%"></i>
+                <i id="seg2" style="width: 0%"></i>
+                <i id="seg3" style="width: 0%"></i>
+                <i id="seg4" style="width: 0%"></i>
+              </div>
+              <div class="meter-foot">
+                <span>0%</span>
+                <span id="meterLeft">$312 LEFT</span>
+              </div>
+            </div>
+
+            <div class="slate" id="slate" role="list"></div>
+
+            <p class="slate-sum" id="slateSum">
+              Select gap gigs that add up to <strong>$312</strong>
+            </p>
+
+            <button type="button" class="btn gig" id="btnGig" disabled>
+              Claim slate · closes $312 gap
+            </button>
+            <button type="button" class="btn ghost" id="btnGigBack">
+              Compare Zayzoon instead
+            </button>
+
+            <div class="toast gig" id="toastGig">
+              <strong>Slate claimed · $0 fee</strong>
+              Gap closed. Extra earnings routed to your Vault.
+            </div>
+          </section>
+
+          <section class="social-card" aria-label="Social accountability">
+            <h3>Social accountability</h3>
+            <p class="lede">
+              Add a friend by phone. They get a text when you take an advance —
+              or when you close the gap and grow your Vault.
+            </p>
+
+            <div class="friend-chip" id="friendChip">
+              <div class="friend-avatar" id="friendAvatar">JF</div>
+              <div class="friend-info">
+                <span class="name" id="friendName">Jamie</span>
+                <span class="phone" id="friendPhone"></span>
+                <span class="status">Accountability partner · SMS on</span>
+              </div>
+              <button type="button" class="btn ghost" id="btnEditFriend" style="width:auto;margin:0;padding:8px 10px;font-size:12px">
+                Edit
+              </button>
+            </div>
+
+            <div class="friend-empty" id="friendEmpty">
+              <ul class="social-rules">
+                <li class="adv">Advance chosen → friend is notified</li>
+                <li class="sav">Gap closed + Vault deposit → friend is notified</li>
+              </ul>
+              <button type="button" class="btn gig" id="btnAddFriend">
+                Add a friend by phone
+              </button>
+            </div>
+
+            <ul class="social-rules" id="friendRules" hidden>
+              <li class="adv">Advance chosen → friend is notified</li>
+              <li class="sav">Gap closed + Vault deposit → friend is notified</li>
+            </ul>
+          </section>
+        </main>
+
+        <!-- Add friend screen -->
+        <div class="overlay" id="overlayFriend" aria-hidden="true" role="dialog" aria-labelledby="friendTitle">
+          <div class="overlay-top">
+            <button type="button" class="overlay-back" id="friendBack" aria-label="Close">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <h2 id="friendTitle">Add friend</h2>
+          </div>
+          <div class="overlay-body">
+            <p class="display">Who’s got your back?</p>
+            <p class="copy">
+              They’ll only get Chaching texts you’ve opted into — when you take an
+              advance, or when you close a gap and add to savings. They can reply STOP anytime.
+            </p>
+            <div class="field">
+              <label for="inputName">Their first name</label>
+              <input id="inputName" type="text" autocomplete="given-name" placeholder="Jamie" value="Jamie" />
+            </div>
+            <div class="field">
+              <label for="inputPhone">Mobile number</label>
+              <input id="inputPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(403) 555-0142" value="(403) 555-0142" />
+            </div>
+            <label class="consent">
+              <input type="checkbox" id="inputConsent" checked />
+              <span>
+                I confirm this person agreed to receive Chaching accountability texts
+                about my advances and savings milestones. Msg &amp; data rates may apply.
+              </span>
+            </label>
+            <p class="preview-note">
+              Preview: “Hi Jamie. Alex shared Chaching updates with you…”
+            </p>
+            <button type="button" class="btn gig" id="btnSaveFriend">
+              Save accountability friend
+            </button>
+          </div>
+        </div>
+
+        <!-- SMS: advance -->
+        <div class="overlay" id="overlaySmsAdvance" aria-hidden="true" role="dialog" aria-labelledby="smsAdvTitle">
+          <div class="overlay-top">
+            <button type="button" class="overlay-back" id="smsAdvBack" aria-label="Close">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <h2 id="smsAdvTitle">Friend’s phone</h2>
+          </div>
+          <div class="overlay-body">
+            <div class="sms-phone">
+              <div class="sms-screen">
+                <div class="sms-status"><span>9:41</span><span>5G</span></div>
+                <div class="sms-header">
+                  <div class="avatar">CHA</div>
+                  <div class="who">Chaching</div>
+                  <div class="sub">Text Message · SMS</div>
+                </div>
+                <div class="sms-thread">
+                  <div class="sms-time">Today 9:41 AM</div>
+                  <div class="sms-bubble" id="smsAdvanceBody"></div>
+                  <div class="sms-time">Today 2:18 PM</div>
+                  <div class="sms-bubble" id="smsAdvanceBody2"></div>
+                </div>
+                <div class="sms-compose"><div class="box"></div><div class="send"></div></div>
+              </div>
+            </div>
+            <p class="sms-caption">
+              <strong>Advance scenario</strong> — marketing-approved notice when your friend is alerted you used early wage access.
+            </p>
+          </div>
+        </div>
+
+        <!-- SMS: savings -->
+        <div class="overlay" id="overlaySmsSave" aria-hidden="true" role="dialog" aria-labelledby="smsSavTitle">
+          <div class="overlay-top">
+            <button type="button" class="overlay-back" id="smsSavBack" aria-label="Close">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <h2 id="smsSavTitle">Friend’s phone</h2>
+          </div>
+          <div class="overlay-body">
+            <div class="sms-phone">
+              <div class="sms-screen">
+                <div class="sms-status"><span>9:42</span><span>5G</span></div>
+                <div class="sms-header">
+                  <div class="avatar">CHA</div>
+                  <div class="who">Chaching</div>
+                  <div class="sub">Text Message · SMS</div>
+                </div>
+                <div class="sms-thread">
+                  <div class="sms-time">Today 9:42 AM</div>
+                  <div class="sms-bubble" id="smsSaveBody"></div>
+                </div>
+                <div class="sms-compose"><div class="box"></div><div class="send"></div></div>
+              </div>
+            </div>
+            <p class="sms-caption">
+              <strong>Vault scenario</strong> — friend is notified you closed the gap and added to high-interest savings.
+            </p>
+          </div>
+        </div>
+
+        <div class="home-bar"></div>
+      </div>
+    </div>
+
+    <script>
+      const GAP = 312
+      const CHART_H = 110
+
+      const weekDays = [
+        {
+          id: "mon",
+          d: "Mon",
+          n: "27",
+          in: 224,
+          out: 118,
+          gap: false,
+          pay: false,
+          title: "Monday Apr 27",
+          lines: [
+            { t: "Day shift pay · Apr 26", v: "+$224", kind: "in" },
+            { t: "Living · food / transit", v: "−$43", kind: "out" },
+            { t: "Advance used + fee", v: "−$75", kind: "out" },
+          ],
+        },
+        {
+          id: "tue",
+          d: "Tue",
+          n: "28",
+          in: 0,
+          out: 52,
+          gap: false,
+          pay: false,
+          title: "Tuesday Apr 28",
+          lines: [
+            { t: "No pay lands", v: "$0", kind: "in" },
+            { t: "Living · groceries", v: "−$52", kind: "out" },
+          ],
+        },
+        {
+          id: "wed",
+          d: "Wed",
+          n: "29",
+          in: 0,
+          out: 48,
+          gap: false,
+          pay: false,
+          title: "Wednesday Apr 29",
+          lines: [
+            { t: "No pay lands", v: "$0", kind: "in" },
+            { t: "Living · transit / food", v: "−$48", kind: "out" },
+          ],
+        },
+        {
+          id: "thu",
+          d: "Thu",
+          n: "30",
+          in: 0,
+          out: 268,
+          gap: false,
+          pay: false,
+          title: "Thursday Apr 30",
+          lines: [
+            { t: "No pay lands", v: "$0", kind: "in" },
+            { t: "Debt payment", v: "−$225", kind: "out" },
+            { t: "Living", v: "−$43", kind: "out" },
+          ],
+        },
+        {
+          id: "fri",
+          d: "Fri",
+          n: "01",
+          in: 0,
+          out: 2122,
+          gap: true,
+          pay: false,
+          title: "Friday May 1 · gap day",
+          lines: [
+            { t: "No pay lands", v: "$0", kind: "in" },
+            { t: "Rent autopay", v: "−$2,056", kind: "out" },
+            { t: "Mobile phone", v: "−$66", kind: "out" },
+            { t: "Shortfall vs cash on hand", v: "−$312", kind: "out" },
+          ],
+        },
+        {
+          id: "sat",
+          d: "Sat",
+          n: "02",
+          in: 672,
+          out: 45,
+          gap: false,
+          pay: true,
+          title: "Saturday May 2 · pay lands",
+          lines: [
+            { t: "Night + split + day deposit", v: "+$672", kind: "in" },
+            { t: "Living", v: "−$45", kind: "out" },
+            { t: "Would have covered Friday", v: "1 day late", kind: "out" },
+          ],
+        },
+        {
+          id: "sun",
+          d: "Sun",
+          n: "03",
+          in: 0,
+          out: 40,
+          gap: false,
+          pay: false,
+          title: "Sunday May 3",
+          lines: [
+            { t: "No pay lands", v: "$0", kind: "in" },
+            { t: "Living", v: "−$40", kind: "out" },
+          ],
+        },
+      ]
+
+      const monthWeeks = [
+        {
+          id: "w1",
+          d: "Wk 1",
+          n: "27–3",
+          in: 896,
+          out: 2693,
+          gap: true,
+          pay: false,
+          title: "Week 1 · Apr 27 – May 3",
+          lines: [
+            { t: "Income landed", v: "+$896", kind: "in" },
+            { t: "Rent + phone + debt + living", v: "−$2,693", kind: "out" },
+            { t: "Timing gap on Friday", v: "−$312", kind: "out" },
+          ],
+        },
+        {
+          id: "w2",
+          d: "Wk 2",
+          n: "4–10",
+          in: 720,
+          out: 398,
+          gap: false,
+          pay: true,
+          title: "Week 2 · May 4 – 10",
+          lines: [
+            { t: "Typical 4 shifts", v: "+$720", kind: "in" },
+            { t: "Utilities May 5", v: "−$154", kind: "out" },
+            { t: "Living", v: "−$244", kind: "out" },
+          ],
+        },
+        {
+          id: "w3",
+          d: "Wk 3",
+          n: "11–17",
+          in: 720,
+          out: 260,
+          gap: false,
+          pay: false,
+          title: "Week 3 · May 11 – 17",
+          lines: [
+            { t: "Typical 4 shifts", v: "+$720", kind: "in" },
+            { t: "Living only", v: "−$260", kind: "out" },
+          ],
+        },
+        {
+          id: "w4",
+          d: "Wk 4",
+          n: "18–24",
+          in: 680,
+          out: 250,
+          gap: false,
+          pay: false,
+          title: "Week 4 · May 18 – 24",
+          lines: [
+            { t: "3–4 shifts", v: "+$680", kind: "in" },
+            { t: "Living", v: "−$250", kind: "out" },
+          ],
+        },
+        {
+          id: "w5",
+          d: "Wk 5",
+          n: "25–31",
+          in: 564,
+          out: 240,
+          gap: false,
+          pay: false,
+          title: "Week 5 · May 25 – 31",
+          lines: [
+            { t: "Closing shifts", v: "+$564", kind: "in" },
+            { t: "Living", v: "−$240", kind: "out" },
+            { t: "Month leftover", v: "+$876", kind: "in" },
+          ],
+        },
+      ]
+
+      const gigs = [
+        {
+          id: "g1",
+          title: "Dinner delivery",
+          meta: "Tonight · 3 hrs · SE Calgary",
+          pay: 71,
+          vault: false,
+        },
+        {
+          id: "g2",
+          title: "Warehouse load-out",
+          meta: "Thu evening · 4 hrs · NE",
+          pay: 95,
+          vault: false,
+        },
+        {
+          id: "g3",
+          title: "Morning move assist",
+          meta: "Fri 6–11am · before rent hits",
+          pay: 146,
+          vault: false,
+        },
+        {
+          id: "g4",
+          title: "Weekend event staff",
+          meta: "Sat · 4 hrs · after gap is closed",
+          pay: 80,
+          vault: true,
+        },
+      ]
+
+      const daysEl = document.getElementById("days")
+      const dayDetail = document.getElementById("dayDetail")
+      const pathZay = document.getElementById("pathZay")
+      const pathGig = document.getElementById("pathGig")
+      const panelZay = document.getElementById("panelZay")
+      const panelGig = document.getElementById("panelGig")
+      const slateEl = document.getElementById("slate")
+      const meterGot = document.getElementById("meterGot")
+      const meterLeft = document.getElementById("meterLeft")
+      const slateSum = document.getElementById("slateSum")
+      const btnGig = document.getElementById("btnGig")
+      const btnZay = document.getElementById("btnZay")
+      const toastZay = document.getElementById("toastZay")
+      const toastGig = document.getElementById("toastGig")
+      const seg1 = document.getElementById("seg1")
+      const seg2 = document.getElementById("seg2")
+      const seg3 = document.getElementById("seg3")
+      const seg4 = document.getElementById("seg4")
+      const btnWeek = document.getElementById("btnWeek")
+      const btnMonth = document.getElementById("btnMonth")
+      const yAxis = document.getElementById("yAxis")
+      const chartTitle = document.getElementById("chartTitle")
+      const chartNote = document.getElementById("chartNote")
+      const cycleLabel = document.getElementById("cycleLabel")
+      const overlayFriend = document.getElementById("overlayFriend")
+      const overlaySmsAdvance = document.getElementById("overlaySmsAdvance")
+      const overlaySmsSave = document.getElementById("overlaySmsSave")
+      const friendChip = document.getElementById("friendChip")
+      const friendEmpty = document.getElementById("friendEmpty")
+      const friendRules = document.getElementById("friendRules")
+      const zayNotifyVal = document.getElementById("zayNotifyVal")
+
+      const selected = new Set()
+      let range = "week"
+      let activeId = "fri"
+      let friend = null
+      let lastVault = 0
+
+      const openOverlay = (el) => {
+        el.classList.add("open")
+        el.setAttribute("aria-hidden", "false")
+      }
+
+      const closeOverlay = (el) => {
+        el.classList.remove("open")
+        el.setAttribute("aria-hidden", "true")
+      }
+
+      const initials = (name) => {
+        const parts = name.trim().split(/\s+/)
+        if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase()
+        return (parts[0][0] + parts[1][0]).toUpperCase()
+      }
+
+      const refreshFriendUI = () => {
+        if (!friend) {
+          friendChip.classList.remove("on")
+          friendEmpty.hidden = false
+          friendRules.hidden = true
+          zayNotifyVal.textContent = "Add a friend first"
+          zayNotifyVal.className = "val"
+          return
+        }
+        friendChip.classList.add("on")
+        friendEmpty.hidden = true
+        friendRules.hidden = false
+        document.getElementById("friendName").textContent = friend.name
+        document.getElementById("friendPhone").textContent = friend.phone
+        document.getElementById("friendAvatar").textContent = initials(friend.name)
+        zayNotifyVal.textContent = friend.name + " via SMS"
+        zayNotifyVal.className = "val ok"
+      }
+
+      const smsAdvanceCopy = () => {
+        const name = friend ? friend.name : "there"
+        return (
+          "Hi " +
+          name +
+          ". Alex shared Chaching updates with you. They got some of their pay early today to cover a shortfall before payday. No action needed. Reply STOP to opt out of Chaching texts. Msg & data rates may apply."
+        )
+      }
+
+      const smsAdvanceFollowUpCopy = () => {
+        return "Good news: Alex finished a gig today and earned extra cash. Nice work closing the gap!"
+      }
+
+      const smsSaveCopy = (vaultAmt) => {
+        const name = friend ? friend.name : "there"
+        const vaultLine =
+          vaultAmt > 0
+            ? " and added $" + vaultAmt + " to their high-interest Chaching Vault"
+            : ""
+        return (
+          "Hi " +
+          name +
+          " — good news from Alex on Chaching: they closed a $312 cash gap with gig work" +
+          vaultLine +
+          " instead of taking an advance. Reply STOP to opt out. Msg & data rates may apply."
+        )
+      }
+
+      const showAdvanceSms = () => {
+        document.getElementById("smsAdvanceBody").textContent = smsAdvanceCopy()
+        document.getElementById("smsAdvanceBody2").textContent =
+          smsAdvanceFollowUpCopy()
+        openOverlay(overlaySmsAdvance)
+      }
+
+      const showSaveSms = (vaultAmt) => {
+        document.getElementById("smsSaveBody").textContent = smsSaveCopy(vaultAmt)
+        openOverlay(overlaySmsSave)
+      }
+
+      const formatAxis = (max) => {
+        const top = max
+        const mid1 = Math.round(max * (2 / 3))
+        const mid2 = Math.round(max / 3)
+        const fmt = (n) => {
+          if (n >= 1000) return "$" + (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1) + "k"
+          return "$" + n
+        }
+        yAxis.innerHTML =
+          "<span>" +
+          fmt(top) +
+          "</span><span>" +
+          fmt(mid1) +
+          "</span><span>" +
+          fmt(mid2) +
+          "</span><span>$0</span>"
+      }
+
+      const currentSet = () => (range === "week" ? weekDays : monthWeeks)
+
+      const scaleMax = () => {
+        const set = currentSet()
+        const peak = Math.max(...set.flatMap((d) => [d.in, d.out]))
+        return Math.ceil(peak / 100) * 100
+      }
+
+      const barH = (amt, max) => {
+        if (amt <= 0) return 2
+        const h = Math.round((amt / max) * CHART_H)
+        return Math.max(4, Math.min(CHART_H, h))
+      }
+
+      const renderChart = () => {
+        const set = currentSet()
+        const max = scaleMax()
+        formatAxis(max)
+        daysEl.classList.toggle("month", range === "month")
+
+        daysEl.innerHTML = set
+          .map((day) => {
+            const cls = [
+              "day",
+              day.gap ? "gap-day" : "",
+              day.pay ? "pay-day" : "",
+              day.id === activeId ? "on" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")
+            return (
+              '<button type="button" class="' +
+              cls +
+              '" data-id="' +
+              day.id +
+              '" role="listitem" aria-label="' +
+              day.title +
+              ", in $" +
+              day.in +
+              ", out $" +
+              day.out +
+              '">' +
+              '<div class="day-bars">' +
+              '<div class="bar in" style="height:' +
+              barH(day.in, max) +
+              'px"></div>' +
+              '<div class="bar out' +
+              (day.gap ? " crash" : "") +
+              '" style="height:' +
+              barH(day.out, max) +
+              'px"></div>' +
+              "</div>" +
+              '<div class="day-meta"><span class="d">' +
+              day.d +
+              '</span><span class="n">' +
+              day.n +
+              "</span></div>" +
+              '<span class="day-pip" aria-hidden="true"></span>' +
+              "</button>"
+            )
+          })
+          .join("")
+      }
+
+      const showDay = (id) => {
+        const day = currentSet().find((d) => d.id === id)
+        if (!day) return
+        activeId = id
+
+        document.querySelectorAll(".day").forEach((el) => {
+          el.classList.toggle("on", el.dataset.id === id)
+        })
+
+        dayDetail.classList.add("open")
+        dayDetail.innerHTML =
+          "<h3>" +
+          day.title +
+          "</h3>" +
+          '<div class="pair">' +
+          "<div><div class=\"lbl\">Income</div><div class=\"val in\">+$" +
+          day.in.toLocaleString() +
+          "</div></div>" +
+          "<div><div class=\"lbl\">Expenses</div><div class=\"val out\">−$" +
+          day.out.toLocaleString() +
+          "</div></div>" +
+          "</div>" +
+          "<ul>" +
+          day.lines
+            .map(
+              (line) =>
+                "<li><b>" +
+                line.t +
+                "</b><span style=\"color:" +
+                (line.kind === "in" ? "var(--in)" : "var(--out)") +
+                '">' +
+                line.v +
+                "</span></li>"
+            )
+            .join("") +
+          "</ul>"
+      }
+
+      const setRange = (next) => {
+        range = next
+        const isWeek = next === "week"
+        btnWeek.classList.toggle("on", isWeek)
+        btnMonth.classList.toggle("on", !isWeek)
+        btnWeek.setAttribute("aria-pressed", String(isWeek))
+        btnMonth.setAttribute("aria-pressed", String(!isWeek))
+
+        if (isWeek) {
+          chartTitle.textContent = "This week · in vs out"
+          cycleLabel.textContent = "Apr 27 – May 3"
+          chartNote.innerHTML =
+            "<strong>Fri May 1:</strong> Rent + phone (−$2,122). Cash on hand isn’t enough. " +
+            "<strong>Sat May 2:</strong> +$672 lands — one day late."
+          activeId = "fri"
+        } else {
+          chartTitle.textContent = "May · by week"
+          cycleLabel.textContent = "May 2026"
+          chartNote.innerHTML =
+            "<strong>Month totals work</strong> (+$876 left). Week 1 is the squeeze — " +
+            "rent lands before pay. Other weeks run ahead."
+          activeId = "w1"
+        }
+
+        renderChart()
+        showDay(activeId)
+      }
+
+      const renderSlate = () => {
+        slateEl.innerHTML = gigs
+          .map((gig) => {
+            const on = selected.has(gig.id)
+            return (
+              '<button type="button" class="gig' +
+              (on ? " on" : "") +
+              (gig.vault ? " vault" : "") +
+              '" data-id="' +
+              gig.id +
+              '" role="listitem" aria-pressed="' +
+              on +
+              '" aria-label="' +
+              gig.title +
+              ", $" +
+              gig.pay +
+              (gig.vault ? ", to Vault" : "") +
+              '">' +
+              '<span class="gig-check" aria-hidden="true">' +
+              '<svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>' +
+              "</span>" +
+              '<span class="gig-body">' +
+              '<span class="title">' +
+              gig.title +
+              "</span>" +
+              '<span class="meta">' +
+              gig.meta +
+              "</span>" +
+              (gig.vault
+                ? '<span class="gig-tag">VAULT · 4.50% APY</span>'
+                : "") +
+              "</span>" +
+              '<span class="gig-pay">+$' +
+              gig.pay +
+              "</span>" +
+              "</button>"
+            )
+          })
+          .join("")
+      }
+
+      const updateMeter = () => {
+        const picks = gigs.filter((g) => selected.has(g.id))
+        const gapPicks = picks.filter((g) => !g.vault)
+        const vaultPicks = picks.filter((g) => g.vault)
+        const gapTotal = gapPicks.reduce((sum, g) => sum + g.pay, 0)
+        const vaultTotal = vaultPicks.reduce((sum, g) => sum + g.pay, 0)
+        const left = Math.max(0, GAP - gapTotal)
+        const pct = Math.min(100, Math.round((gapTotal / GAP) * 100))
+        lastVault = vaultTotal
+
+        document.getElementById("vaultNeed").textContent = "$" + vaultTotal
+        meterGot.textContent =
+          "$" + gapTotal + " gap" + (vaultTotal ? " · $" + vaultTotal + " vault" : "")
+        meterGot.classList.toggle("full", gapTotal >= GAP)
+        meterLeft.textContent =
+          left === 0
+            ? vaultTotal
+              ? "GAP CLOSED · +$" + vaultTotal + " VAULT"
+              : "GAP CLOSED"
+            : "$" + left + " LEFT"
+        document.querySelector(".meter-foot span").textContent = pct + "%"
+
+        const gapGigs = gigs.filter((g) => !g.vault)
+        const vaultGigs = gigs.filter((g) => g.vault)
+        const gapWidths = gapGigs.map((g) =>
+          selected.has(g.id) ? (g.pay / GAP) * 100 : 0
+        )
+        const vaultWidth = vaultGigs.reduce(
+          (sum, g) => sum + (selected.has(g.id) ? (g.pay / GAP) * 100 : 0),
+          0
+        )
+        seg1.style.width = gapWidths[0] + "%"
+        seg2.style.width = gapWidths[1] + "%"
+        seg3.style.width = gapWidths[2] + "%"
+        seg4.style.width = Math.min(40, vaultWidth) + "%"
+
+        if (gapTotal === 0) {
+          slateSum.className = "slate-sum"
+          slateSum.innerHTML =
+            'Select gap gigs that add up to <strong>$312</strong>. Extra → Vault.'
+        } else if (gapTotal < GAP) {
+          slateSum.className = "slate-sum"
+          slateSum.innerHTML =
+            "<strong>$" +
+            gapTotal +
+            "</strong> of $312 · need <strong>$" +
+            left +
+            "</strong> more"
+        } else if (vaultTotal > 0) {
+          slateSum.className = "slate-sum ready"
+          slateSum.innerHTML =
+            "Gap closed · <strong>$" +
+            vaultTotal +
+            "</strong> deposits to Vault at 4.50% APY"
+        } else {
+          slateSum.className = "slate-sum ready"
+          slateSum.innerHTML =
+            "<strong>$312</strong> gap closed · add a Vault gig to grow savings"
+        }
+
+        btnGig.disabled = gapTotal < GAP
+        btnGig.textContent =
+          vaultTotal > 0
+            ? "Claim slate · gap + $" + vaultTotal + " to Vault"
+            : "Claim slate · closes $312 gap"
+        toastGig.classList.remove("open")
+      }
+
+      const openPath = (which) => {
+        const isZay = which === "zay"
+        pathZay.classList.toggle("on", isZay)
+        pathGig.classList.toggle("on", !isZay)
+        pathZay.setAttribute("aria-pressed", String(isZay))
+        pathGig.setAttribute("aria-pressed", String(!isZay))
+        panelZay.classList.toggle("open", isZay)
+        panelGig.classList.toggle("open", !isZay)
+        toastZay.classList.remove("open")
+        toastGig.classList.remove("open")
+
+        const panel = isZay ? panelZay : panelGig
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" })
+      }
+
+      renderChart()
+      renderSlate()
+      updateMeter()
+      showDay("fri")
+      refreshFriendUI()
+
+      daysEl.addEventListener("click", (e) => {
+        const btn = e.target.closest(".day")
+        if (!btn) return
+        showDay(btn.dataset.id)
+      })
+
+      btnWeek.addEventListener("click", () => setRange("week"))
+      btnMonth.addEventListener("click", () => setRange("month"))
+
+      pathZay.addEventListener("click", () => openPath("zay"))
+      pathGig.addEventListener("click", () => openPath("gig"))
+
+      document.getElementById("btnZayBack").addEventListener("click", () => openPath("gig"))
+      document.getElementById("btnGigBack").addEventListener("click", () => openPath("zay"))
+
+      slateEl.addEventListener("click", (e) => {
+        const btn = e.target.closest(".gig")
+        if (!btn) return
+        const id = btn.dataset.id
+        if (selected.has(id)) selected.delete(id)
+        else selected.add(id)
+        renderSlate()
+        updateMeter()
+      })
+
+      btnZay.addEventListener("click", () => {
+        toastZay.classList.add("open")
+        if (!friend) {
+          toastZay.innerHTML =
+            "<strong>Advance started · fee $4.99</strong> Add an accountability friend to notify them."
+          openOverlay(overlayFriend)
+          return
+        }
+        toastZay.innerHTML =
+          "<strong>Advance started · " +
+          friend.name +
+          " notified</strong> $307.01 on the way. Fee $4.99."
+        showAdvanceSms()
+      })
+
+      btnGig.addEventListener("click", () => {
+        if (btnGig.disabled) return
+        toastGig.classList.add("open")
+        if (lastVault > 0) {
+          toastGig.innerHTML =
+            "<strong>Slate claimed · $" +
+            lastVault +
+            " to Vault</strong> Gap closed at $0 fee. Extra pay → 4.50% APY."
+        } else {
+          toastGig.innerHTML =
+            "<strong>Slate claimed · $0 fee</strong> Gap closed. Add a Vault gig next time to grow savings."
+        }
+
+        if (lastVault <= 0) return
+
+        if (!friend) {
+          openOverlay(overlayFriend)
+          return
+        }
+
+        showSaveSms(lastVault)
+      })
+
+      document.getElementById("btnAddFriend").addEventListener("click", () => {
+        openOverlay(overlayFriend)
+      })
+      document.getElementById("btnEditFriend").addEventListener("click", () => {
+        if (friend) {
+          document.getElementById("inputName").value = friend.name
+          document.getElementById("inputPhone").value = friend.phone
+        }
+        openOverlay(overlayFriend)
+      })
+      document.getElementById("friendBack").addEventListener("click", () => {
+        closeOverlay(overlayFriend)
+      })
+      document.getElementById("smsAdvBack").addEventListener("click", () => {
+        closeOverlay(overlaySmsAdvance)
+      })
+      document.getElementById("smsSavBack").addEventListener("click", () => {
+        closeOverlay(overlaySmsSave)
+      })
+
+      document.getElementById("btnSaveFriend").addEventListener("click", () => {
+        const name = document.getElementById("inputName").value.trim() || "Friend"
+        const phone = document.getElementById("inputPhone").value.trim()
+        const consent = document.getElementById("inputConsent").checked
+        if (!phone) {
+          document.getElementById("inputPhone").focus()
+          return
+        }
+        if (!consent) {
+          document.getElementById("inputConsent").focus()
+          return
+        }
+        friend = { name, phone }
+        refreshFriendUI()
+        closeOverlay(overlayFriend)
+        document.querySelector(".social-card").scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        })
+      })
+    </script>
+  </body>
+</html>

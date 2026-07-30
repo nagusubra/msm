@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iMessage — Chaching accountability</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .phone {
+        width: 390px;
+        height: 844px;
+        background: #000;
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+      }
+      .screen {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+      .status {
+        height: 54px;
+        padding: 14px 28px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -0.2px;
+      }
+      .status-right {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .header {
+        text-align: center;
+        padding: 0 16px 10px;
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.12);
+        position: relative;
+      }
+      .back {
+        position: absolute;
+        left: 8px;
+        top: 18px;
+        color: #007aff;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(160deg, #34c759, #0a7a4a);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        display: grid;
+        place-items: center;
+        margin: 0 auto 6px;
+      }
+      .who {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+      }
+      .sub {
+        font-size: 12px;
+        color: #8e8e93;
+        margin-top: 1px;
+      }
+      .thread {
+        flex: 1;
+        background: #fff;
+        padding: 18px 16px 12px;
+        overflow: hidden;
+      }
+      .time {
+        text-align: center;
+        font-size: 12px;
+        color: #8e8e93;
+        margin-bottom: 14px;
+        font-weight: 500;
+      }
+      .bubble {
+        max-width: 78%;
+        background: #e9e9eb;
+        color: #000;
+        border-radius: 18px;
+        padding: 10px 14px;
+        font-size: 17px;
+        line-height: 1.28;
+        letter-spacing: -0.2px;
+      }
+      .bubble + .time {
+        margin-top: 18px;
+      }
+      .bubble + .bubble {
+        margin-top: 8px;
+      }
+      .compose {
+        padding: 8px 12px 28px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+        background: #f9f9f9;
+      }
+      .plus {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #e5e5ea;
+        color: #8e8e93;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1;
+      }
+      .input {
+        flex: 1;
+        height: 36px;
+        border-radius: 18px;
+        border: 1px solid #c7c7cc;
+        background: #fff;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: #c7c7cc;
+      }
+      .mic {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #007aff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="phone" id="capture">
+      <div class="screen">
+        <div class="status">
+          <span>9:41</span>
+          <div class="status-right">
+            <svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="3" width="3" height="8" rx="0.5" fill="#000"/><rect x="4.5" y="2" width="3" height="9" rx="0.5" fill="#000"/><rect x="9" y="0.5" width="3" height="10.5" rx="0.5" fill="#000"/><rect x="13.5" y="0" width="3" height="11" rx="0.5" fill="#000" opacity="0.35"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 3.5c1.6 0 3 .7 4 1.7l1.1-1.2A7 7 0 0 0 8 1.4 7 7 0 0 0 2.9 4l1.1 1.2A5.5 5.5 0 0 1 8 3.5z" fill="#000"/><path d="M8 6.4c.9 0 1.6.3 2.2.9l1.1-1.2A4.4 4.4 0 0 0 8 4.8a4.4 4.4 0 0 0-3.3 1.3L5.8 7.3A2.8 2.8 0 0 1 8 6.4z" fill="#000"/><circle cx="8" cy="10" r="1.2" fill="#000"/></svg>
+            <svg width="27" height="12" viewBox="0 0 27 12"><rect x="0.5" y="0.5" width="22" height="11" rx="2.5" stroke="#000" fill="none" opacity="0.4"/><rect x="2" y="2" width="17" height="8" rx="1.5" fill="#000"/><path d="M24 3.5v5a2 2 0 0 0 0-5z" fill="#000" opacity="0.4"/></svg>
+          </div>
+        </div>
+        <div class="header">
+          <div class="back">‹</div>
+          <div class="avatar">CHA</div>
+          <div class="who">Chaching</div>
+          <div class="sub">Text Message · SMS</div>
+        </div>
+        <div class="thread">
+          <div class="time">Today 9:41 AM</div>
+          <div class="bubble">
+            Hi Jamie. Alex shared Chaching updates with you. They got some of their pay early today to cover a shortfall before payday. No action needed. Reply STOP to opt out of Chaching texts. Msg &amp; data rates may apply.
+          </div>
+          <div class="time">Today 2:18 PM</div>
+          <div class="bubble">
+            Good news: Alex finished a gig today and earned extra cash. Nice work closing the gap!
+          </div>
+        </div>
+        <div class="compose">
+          <div class="plus">+</div>
+          <div class="input">iMessage</div>
+          <div class="mic"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
