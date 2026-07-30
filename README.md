@@ -141,6 +141,100 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ---
 
+## Software design architecture
+
+ChaChing is a **Next.js App Router** client UI that ports the interactive phone prototype. Domain math (allowance, risk, insights) sits behind typed loaders over synthetic Alberta worker CSVs. The shipped demo at `/` is driven by curated narrative data (`chachingDemo`) so the hackathon story stays coherent with the HTML mockups.
+
+### System layers
+
+```mermaid
+flowchart TB
+  subgraph Client["Presentation"]
+    Page["src/app/page.tsx"]
+    App["ChachingApp<br/>phone shell + panels"]
+    Mock["front end mockups/<br/>HTML/CSS prototype"]
+    Page --> App
+    Mock -.->|same UX story| App
+  end
+
+  subgraph Domain["Domain logic"]
+    Allow["allowance.ts"]
+    Risk["riskScore.ts"]
+    Insight["insights.ts"]
+    Persona["persona.ts"]
+    GigStore["gigStorage.ts"]
+  end
+
+  subgraph Data["Data access"]
+    CSV["lib/data/* CSV loaders"]
+    Demo["data/chachingDemo.ts"]
+    Gigs["data/calgaryGigs.ts"]
+    Files["data/*.csv"]
+  end
+
+  subgraph Partners["Recovery partners"]
+    GW["GigWork slate"]
+    ZZ["Zayzoon advance"]
+    Vault["ChaChing Vault"]
+    SMS["SMS accountability"]
+  end
+
+  App --> Demo
+  App --> GW
+  App --> ZZ
+  GW --> Vault
+  ZZ --> SMS
+  GW --> SMS
+  Allow --> CSV
+  Risk --> CSV
+  Insight --> Allow
+  Insight --> Risk
+  CSV --> Files
+  Persona --> Allow
+  GigStore --> Gigs
+```
+
+### Core decision loop
+
+```mermaid
+flowchart LR
+  A["Spot timing gap<br/>$312"] --> B{"Recovery path?"}
+  B -->|Earn| C["GigWork<br/>stack shifts"]
+  B -->|Advance| D["Zayzoon<br/>fee transparent"]
+  C --> E{"Gap closed?"}
+  E -->|No| C
+  E -->|Yes + surplus| F["Vault deposit"]
+  E -->|Yes| G["Notify friend"]
+  F --> G
+  D --> G
+  G --> H["SMS: breach / win"]
+```
+
+### Layer responsibilities
+
+| Layer | Role |
+| --- | --- |
+| **Presentation** | `ChachingApp` owns the phone chrome, week/month cash chart, GigWork slate, Zayzoon panel, friend overlay, and SMS previews. `/gigs` redirects into this same home flow. |
+| **Domain** | Pure functions compute safe daily allowance, overspend risk + timeline, and daily insights from worker/day inputs. |
+| **Data** | CSV loaders (`workers`, `earnings`, `transactions`, `obligations`) feed the math; `chachingDemo` powers the pitch UI; `calgaryGigs` backs optional swipe-deck components. |
+| **Partners** | GigWork closes the gap with earned income; Zayzoon unlocks wages already worked; Vault parks surplus; SMS accountability fires on advance and on gap closed. |
+
+### Repository map
+
+```
+src/app/                 → routes: / (phone UI), /gigs → /, /api/health
+src/components/chaching/ → ChachingApp (React port of mockups)
+src/components/dashboard → allowance / risk / decision building blocks
+src/components/gigs/     → GigWork swipe deck + cards
+src/data/                → chachingDemo narrative + calgaryGigs catalog
+src/lib/                 → allowance, risk, insights, CSV access, gigStorage
+data/                    → synthetic Alberta worker & cashflow CSVs
+scripts/                 → persona / demo-day mining
+front end mockups/       → HTML/CSS prototype + submission screenshots
+```
+
+---
+
 ## Technical execution
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
@@ -151,15 +245,7 @@ Open [http://localhost:3000](http://localhost:3000).
 - Persona mining scripts (`scripts/pick-persona.ts`, `pick-demo-day.ts`) score real CSV workers to pick a believable Calgary demo story  
 - Core math: `src/lib/allowance.ts`, `src/lib/riskScore.ts`, `src/lib/insights.ts`  
 
-**App architecture**
-
-```
-src/app/                    → / (ChaChing phone UI), /gigs → redirects home
-src/components/chaching/    → React port of the HTML mockup flow
-src/lib/                    → allowance, risk, insights, CSV data access, persona
-data/                       → synthetic worker & cashflow CSVs
-front end mockups/          → interactive HTML/CSS phone prototype + screenshots
-```
+See **[Software design architecture](#software-design-architecture)** for layered diagrams and the repository map.
 
 **Clever bits**
 
@@ -202,7 +288,7 @@ Less silent overspending. More income when he chooses to earn it. That’s what 
 | Criterion | Weight | Where to look |
 | --- | --- | --- |
 | **Innovation & originality** | 25% | GigWork + Zayzoon dual paths · timing gap · Vault · two-sided accountability |
-| **Technical execution** | 25% | Next.js phone UI parity with mockups · CSV→allowance/risk pipeline |
+| **Technical execution** | 25% | Architecture diagrams below · Next.js phone UI parity with mockups · CSV→allowance/risk pipeline |
 | **Functional completeness** | 20% | Run `npm run dev` — gap → GigWork or Zayzoon → SMS |
 | **Problem–solution fit** | 20% | Evidence-backed timing pain + same-day earn/advance paths daily workers actually need |
 | **UX & design** | 5% | Screenshots above + `front end mockups/index.html` |
