@@ -1,0 +1,123 @@
+{
+  "worker": {
+    "workerId": "W-0069",
+    "city": "Calgary",
+    "province": "AB",
+    "occupation": "Landscaping / grounds",
+    "payType": "daily",
+    "typicalDailyNetCad": 185.16,
+    "incomeVolatility": 0.45,
+    "tipShare": 0,
+    "householdSize": 2,
+    "dependents": 1,
+    "hasBankAccount": true,
+    "usesPrepaidCard": true,
+    "primaryEmployerId": "EMP-038",
+    "tenureMonths": 67,
+    "hasSideGig": false,
+    "commuteMode": "car",
+    "rentBurdenBand": "high"
+  },
+  "best": {
+    "date": "2026-06-22",
+    "income": 205.37,
+    "allow": 0,
+    "spent": 34.19,
+    "shortfall": 34.19,
+    "weekIncome": 205.37
+  },
+  "overDays": [
+    {
+      "date": "2026-05-19",
+      "income": 228.74,
+      "allow": 0,
+      "spent": 34.97,
+      "shortfall": 34.97,
+      "weekIncome": 434.21
+    },
+    {
+      "date": "2026-05-25",
+      "income": 188.28,
+      "allow": 0,
+      "spent": 41.24,
+      "shortfall": 41.24,
+      "weekIncome": 188.28
+    },
+    {
+      "date": "2026-05-28",
+      "income": 254.69,
+      "allow": 16.13,
+      "spent": 27.52,
+      "shortfall": 11.39,
+      "weekIncome": 646.51
+    },
+    {
+      "date": "2026-06-02",
+      "income": 205.23,
+      "allow": 0,
+      "spent": 11.3,
+      "shortfall": 11.3,
+      "weekIncome": 367.58
+    },
+    {
+      "date": "2026-06-03",
+      "income": 268.65,
+      "allow": 10.85,
+      "spent": 32.5,
+      "shortfall": 21.65,
+      "weekIncome": 636.23
+    },
+    {
+      "date": "2026-06-11",
+      "income": 229.66,
+      "allow": 0.23,
+      "spent": 50.44,
+      "shortfall": 50.21,
+      "weekIncome": 582.92
+    },
+    {
+      "date": "2026-06-15",
+      "income": 204.4,
+      "allow": 0,
+      "spent": 23.93,
+      "shortfall": 23.93,
+      "weekIncome": 204.4
+    },
+    {
+      "date": "2026-06-22",
+      "income": 205.37,
+      "allow": 0,
+      "spent": 34.19,
+      "shortfall": 34.19,
+      "weekIncome": 205.37
+    }
+  ],
+  "dayTxns": [
+    {
+      "txnId": "T-0009963",
+      "workerId": "W-0069",
+      "txnTs": "2026-06-22T21:09:00",
+      "direction": "debit",
+      "amountCad": 34.19,
+      "category": "entertainment",
+      "merchantType": "streaming_leisure",
+      "channel": "cash",
+      "isEssential": false,
+      "runningBalanceCad": -257.9,
+      "notes": ""
+    },
+    {
+      "txnId": "T-0009854",
+      "workerId": "W-0069",
+      "txnTs": "2026-06-22T22:28:00",
+      "direction": "credit",
+      "amountCad": 205.37,
+      "category": "income",
+      "merchantType": "employer_payroll",
+      "channel": "payroll_card",
+      "isEssential": false,
+      "runningBalanceCad": 10826.49,
+      "notes": "linked_earnings_id=E-003797"
+    }
+  ]
+}

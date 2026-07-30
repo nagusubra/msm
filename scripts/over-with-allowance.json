@@ -1,0 +1,20 @@
+[
+  {
+    "d": "2026-04-15",
+    "income": 185.1,
+    "allow": 20.64,
+    "spent": 42.18,
+    "shortfall": 21.54,
+    "daysLeft": 5,
+    "weekInc": 685.2
+  },
+  {
+    "d": "2026-05-28",
+    "income": 254.69,
+    "allow": 16.13,
+    "spent": 27.52,
+    "shortfall": 11.39,
+    "daysLeft": 4,
+    "weekInc": 646.51
+  }
+]

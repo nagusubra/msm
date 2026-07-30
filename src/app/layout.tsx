@@ -1,25 +1,35 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Footer } from "@/components/layout/footer"
-import { Header } from "@/components/layout/header"
+import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
   subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-mono",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
   title: {
-    default: "MSM",
-    template: "%s | MSM",
+    default: "Chaching",
+    template: "%s | Chaching",
   },
-  description: "A Next.js starter ready to build on top of.",
+  description:
+    "Timing · not totals. Close cash gaps with gigs or early wage access — and stay accountable with friends.",
 }
 
 export default function RootLayout({
@@ -30,13 +40,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <Header />
-        <div className="flex flex-1 flex-col">{children}</div>
-        <Footer />
-      </body>
+      <body className="font-sans text-ink">{children}</body>
     </html>
   )
 }
