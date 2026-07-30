@@ -3,8 +3,8 @@ import { Container } from "@/components/ui/container"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "/", label: "Dashboard" },
-  { href: "/gigs", label: "Find gigs" },
+  { href: "/", label: "Home" },
+  { href: "/", label: "GigWork" },
 ]
 
 export const Header = () => {

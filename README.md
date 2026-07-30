@@ -1,17 +1,17 @@
 # ChaChing
 
-**Beyond money in / money out — a same-day cash-flow tool for daily earners, and a dual revenue engine for workers *and* Zayzoon.**
+**Beyond money in / money out — a same-day cash-flow tool for daily earners.**
 
 The hackathon asked what someone who gets paid by the day would actually find valuable. Research and industry data point to the same answer: **timing**, not monthly totals.
 
-ChaChing surfaces **cash timing gaps** (rent Friday, pay Saturday), scores **overspend risk**, then closes the shortfall with **same-day jobs** and/or **earned-wage advances** — with friend accountability on both slips and wins. That loop creates value on both sides:
+ChaChing surfaces **cash timing gaps** (rent Friday, pay Saturday), scores **overspend risk**, then closes the shortfall with two partner paths:
 
-| Who | What they gain |
+| Path | What it does |
 | --- | --- |
-| **The worker** | Extra income from gap-matched gigs (and surplus → Vault) instead of payday loans or silent shame |
-| **Zayzoon** | **Placement commissions** on jobs ChaChing fills — plus advance fees when users choose early wage access |
+| **GigWork** | Same-day Calgary shifts matched to today’s gap — you earn the shortfall, $0 advance fee |
+| **Zayzoon** | Earned-wage advance on pay you’ve already worked — transparent fee, repaid from the next deposit |
 
-Budgeting alone does not grow income. ChaChing turns a shortfall into **work**, and that work into a **shared business model**.
+Friend accountability runs on both slips and wins. Budgeting alone does not grow income. ChaChing turns a shortfall into **work** or **early access to wages already earned**.
 
 ---
 
@@ -22,8 +22,8 @@ Daily and gig earners don’t fail because they can’t read a pie chart. They f
 - **The “timing tax”** — Surveys of renters using payment-flexibility tools find ~**31%** sometimes, rarely, or never have enough cash when rent is due — *not because they lack earnings*, but because pay and rent dates misalign ([HousingWire / Flex](https://www.housingwire.com/articles/rent-timing-tax-workers/)).
 - **Income that moves** — The Federal Reserve’s SHED work finds about **one in three** wage earners has income that varies month to month — brutal when rent is a fixed lump sum.
 - **Same-day cash is a need, not a nicety** — PYMNTS research finds **~54% of gig workers** (and **~65% of tipped workers**) say they need same-day access to funds; side work is often used for **rent, groceries, and utilities**, not luxuries ([PYMNTS](https://www.pymnts.com/payroll/2026/welcome-to-the-transactional-economy/)).
-- **The wrong bridge is expensive** — Typical payday-loan economics can cost ~**$520 to borrow $375**; overdraft/NSF fees hit vulnerable households hardest. ChaChing steers people toward **earn** or transparent **earned-wage access** instead.
-- **Partners want more than advances** — Industry analyses (e.g. Everest on EWA) show employers moving EWA into **holistic financial wellness** — education, savings, planning — not payday alone. ChaChing matches that shift: gap insight → gig or advance → Vault → accountability.
+- **The wrong bridge is expensive** — Typical payday-loan economics can cost ~**$520 to borrow $375**; overdraft/NSF fees hit vulnerable households hardest. ChaChing steers people toward **GigWork** or transparent **Zayzoon** earned-wage access instead.
+- **Partners want more than advances** — Industry analyses (e.g. Everest on EWA) show employers moving EWA into **holistic financial wellness** — education, savings, planning — not payday alone. ChaChing matches that shift: gap insight → GigWork or advance → Vault → accountability.
 
 **What a daily earner actually values:** *Can I make it through today — and if not, how do I earn or unlock wages I already worked before tonight?* That is the prompt. That is ChaChing.
 
@@ -32,24 +32,23 @@ Daily and gig earners don’t fail because they can’t read a pie chart. They f
 ## Unique value proposition
 
 1. **Timing, not totals** — Enough for the month can still mean short on Friday. We name the dollar gap and *why*.
-2. **Close with income, not only cuts** — Same-day Calgary gigs matched to the shortfall — valuable when side work is how people cover essentials.
-3. **Dual-sided revenue** — Workers get a new earn stream; **Zayzoon earns commission** when those jobs convert — partner upside beyond advance fees alone.
-4. **Safer than the default alternatives** — Transparent advance fee *or* $0-fee gig path, vs. payday/overdraft spirals.
-5. **Accountability that celebrates recovery** — Friends hear about advances *and* completed gigs.
+2. **Close with income via GigWork** — Same-day Calgary shifts matched to the shortfall — valuable when side work is how people cover essentials.
+3. **Or unlock wages with Zayzoon** — Transparent advance fee when earning tonight isn’t realistic.
+4. **Safer than the default alternatives** — $0-fee GigWork path *or* transparent advance, vs. payday/overdraft spirals.
+5. **Accountability that celebrates recovery** — Friends hear about advances *and* completed GigWork shifts.
 
-Judges scoring **Innovation** and **Problem–Solution Fit**: this is day-rate survival infrastructure + partner monetization — not a prettier ledger.
+Judges scoring **Innovation** and **Problem–Solution Fit**: this is day-rate survival infrastructure — not a prettier ledger.
 
 ---
 
 ## Why this exists (problem → solution)
 
-| What budgeting apps do | What daily earners (and partners) need |
+| What budgeting apps do | What daily earners need |
 | --- | --- |
 | Monthly totals & leftover charts | A yes / tight / stop decision *today* |
 | “You’re over budget” after the fact | Likelihood of blowing past allowance *before* it happens |
-| Cut spending advice | Concrete **jobs** (and transparent advances) to cover the shortfall the same day |
+| Cut spending advice | Concrete **GigWork** jobs (and transparent advances) to cover the shortfall the same day |
 | Silent personal shame | Peer accountability on breaches *and* wins |
-| No upside for wage-access partners | **Zayzoon commission** on placed gigs — revenue beyond advance fees |
 
 **ChaChing is built around timing, not totals — and around earning more, not only spending less.**
 
@@ -59,19 +58,19 @@ Judges scoring **Innovation** and **Problem–Solution Fit**: this is day-rate s
 
 ### 1. Spot the gap — timing, not totals
 
-Rent and bills hit before pay lands. ChaChing names the shortfall, explains *why*, and offers two recovery paths: **gig** (worker earns · Zayzoon placement) or **Zayzoon advance**.
+Rent and bills hit before pay lands. ChaChing names the shortfall, explains *why*, and offers two recovery paths: **GigWork** (earn it) or **Zayzoon** (advance it).
 
-![ChaChing main screen — $312 timing gap with gig vs Zayzoon actions](./front%20end%20mockups/Chaching%20Main%20Screenshot.png)
+![ChaChing main screen — $312 timing gap with GigWork vs Zayzoon actions](./front%20end%20mockups/Chaching%20Main%20Screenshot.png)
 
-### 2. Close it with a gig slate (worker earns · Zayzoon commissions)
+### 2. Close it with GigWork (you earn)
 
-Stack nearby shifts until the gap hits $0. The worker gets paid; **Zayzoon takes a placement commission** on jobs filled through ChaChing. Anything beyond the shortfall can flow into a **ChaChing Vault** (4.50% APY).
+Stack nearby GigWork shifts until the gap hits $0. The worker gets paid for the work. Anything beyond the shortfall can flow into a **ChaChing Vault** (4.50% APY).
 
-![Gig slate — stack Calgary shifts to close a $312 gap, then Vault extras](./front%20end%20mockups/Chaching-3.png)
+![GigWork slate — stack Calgary shifts to close a $312 gap, then Vault extras](./front%20end%20mockups/Chaching-3.png)
 
 ### 3. Or advance wages you’ve already earned
 
-Pull the shortfall via **Zayzoon** (fee transparent up front), repaid from the next deposit — with social accountability wired in. Gig and advance sit side by side so users (and the partner) can compare.
+Pull the shortfall via **Zayzoon** (fee transparent up front), repaid from the next deposit — with social accountability wired in. GigWork and advance sit side by side so users can compare.
 
 ![Zayzoon early wage access and social accountability entry point](./front%20end%20mockups/Chaching-5.png)
 
@@ -83,23 +82,22 @@ Opt-in friend by phone. They only get texts you’ve approved — advances, gap 
 
 ### 5. Real accountability texts (not just in-app toasts)
 
-Friends hear both sides: early pay when you’re short, and praise when you finish a gig and close the gap.
+Friends hear both sides: early pay when you’re short, and praise when you finish a GigWork shift and close the gap.
 
-![iMessage accountability thread — advance notice and gig win](./front%20end%20mockups/imessage-accountability.png)
+![iMessage accountability thread — advance notice and GigWork win](./front%20end%20mockups/imessage-accountability.png)
 
-> Interactive HTML prototypes live in [`front end mockups/`](./front%20end%20mockups/) (`index.html`, `imessage-accountability.html`). Open them in a browser for the clickable phone flow.
+> Interactive HTML prototypes live in [`front end mockups/`](./front%20end%20mockups/) (`index.html`, `imessage-accountability.html`). Open them in a browser for the clickable phone flow — the Next.js app at `/` mirrors the same experience.
 
 ---
 
 ## Working app demo (Next.js)
 
-The shipped app runs the **core daily loop** on synthetic Alberta worker data:
+The shipped React app is the same phone flow as the HTML mockups:
 
-1. Open `/` → demo persona **Alex** (Calgary landscaper, `W-0069`) on a day he’s over allowance  
-2. See **safe daily allowance**, **decision hero** (yes / tight / stop), and **overspend risk** with drivers  
-3. Friends get simulated accountability toasts on breach  
-4. Tap into **`/gigs`** → swipe Accept / Skip Calgary gigs (worker income path)  
-5. Accepted payouts fold back into week earnings and rebuild allowance  
+1. Open `/` → Alex’s **$312 timing gap** (Calgary)  
+2. Choose **GigWork** (stack shifts → claim slate → Vault surplus) or **Zayzoon** (advance + fee)  
+3. Add an accountability friend and preview SMS on advance / gap closed  
+4. Charts, meters, toasts, and overlays match the interactive mockups  
 
 ```bash
 npm install
@@ -107,8 +105,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
-
-Optional query params: `?worker=W-0069&date=2026-05-28` (defaults already set for the over-allowance story).
 
 | Command | Description |
 | --- | --- |
@@ -127,10 +123,10 @@ Optional query params: `?worker=W-0069&date=2026-05-28` (defaults already set fo
 | --- | --- | --- |
 | Day-to-day earnings reality | Safe allowance from week-to-date pay − prorated essentials ÷ days left | Matches variable daily pay vs fixed bills |
 | Beyond in/out ledgers | Overspend **risk score** + history→prediction timeline | Anticipates pressure before the “timing tax” hits |
-| Valuable *today* | Same-day **job opportunities** that pay the exact gap | Aligns with gig workers’ need for same-day cash / side income for essentials |
+| Valuable *today* | **GigWork** same-day shifts that pay the exact gap | Aligns with gig workers’ need for same-day cash / side income for essentials |
 | Real personal pain | Timing mismatch (bills before pay) + peer recovery signals | Same failure mode documented for renters and irregular-pay workers |
-| **Beyond a budgeting tool** | **Dual revenue:** worker payouts + **Zayzoon gig-placement commissions** | Earn path + partner economics, not another monthly report |
-| Stretch ambition | Advance + Vault + SMS + marketplace commission model | Matches industry move from EWA-alone → holistic wellness |
+| **Beyond a budgeting tool** | Earn via GigWork *or* unlock wages via Zayzoon | Action paths, not another monthly report |
+| Stretch ambition | Advance + Vault + SMS + GigWork marketplace | Matches industry move from EWA-alone → holistic wellness |
 
 ---
 
@@ -138,10 +134,10 @@ Optional query params: `?worker=W-0069&date=2026-05-28` (defaults already set fo
 
 - **Timing-aware cash gap** — “You earn enough this month; you’re still short Friday” (the documented timing tax)  
 - **Explainable overspend risk** — weighted heuristic with readable drivers — not a black box  
-- **Income-first recovery** — gig stack matched to the shortfall, not only “spend less”  
-- **Partner flywheel** — Zayzoon monetizes **job placement commissions** when ChaChing converts a gap into work (plus advance fees)  
-- **Social accountability that cuts both ways** — notify on advance / breach *and* on gig completed / Vault deposit  
-- **Vault after gap** — surplus gig pay → high-interest vault, not lifestyle creep  
+- **Income-first recovery** — GigWork slate matched to the shortfall, not only “spend less”  
+- **Two clear partners** — GigWork for earn, Zayzoon for earned-wage access  
+- **Social accountability that cuts both ways** — notify on advance / breach *and* on GigWork completed / Vault deposit  
+- **Vault after gap** — surplus GigWork pay → high-interest vault, not lifestyle creep  
 
 ---
 
@@ -158,18 +154,18 @@ Optional query params: `?worker=W-0069&date=2026-05-28` (defaults already set fo
 **App architecture**
 
 ```
-src/app/           → / dashboard, /gigs swipe deck, /api/health
-src/components/    → decision hero, risk chart, allowance pulse, gigs, toasts
-src/lib/           → allowance, risk, insights, CSV data access, persona
-data/              → synthetic worker & cashflow CSVs
-front end mockups/ → interactive HTML/CSS phone prototype + screenshots
+src/app/                    → / (ChaChing phone UI), /gigs → redirects home
+src/components/chaching/    → React port of the HTML mockup flow
+src/lib/                    → allowance, risk, insights, CSV data access, persona
+data/                       → synthetic worker & cashflow CSVs
+front end mockups/          → interactive HTML/CSS phone prototype + screenshots
 ```
 
 **Clever bits**
 
-- Custom SVG risk timeline (no chart library)  
-- Gig accepts persist in `localStorage` and sync across tabs via `chaching-gigs-updated` so the dashboard allowance updates live  
-- Mockups and app share the same Alex / $312 Calgary narrative for a coherent pitch  
+- Custom SVG risk / cash charts (no chart library)  
+- GigWork slate selection with live gap meter + Vault surplus  
+- Mockups and Next app share the same Alex / $312 Calgary narrative  
 
 ---
 
@@ -177,14 +173,11 @@ front end mockups/ → interactive HTML/CSS phone prototype + screenshots
 
 | Step | Status |
 | --- | --- |
-| Load worker day from dataset | ✅ |
-| Compute safe daily allowance + status | ✅ |
-| Show spend / bill pressure / risk | ✅ |
-| Accountability feedback on overspend | ✅ |
-| Browse & accept Calgary gigs (worker revenue) | ✅ |
-| Gig income updates allowance | ✅ |
-| Zayzoon advance + Vault + SMS UX | ✅ in interactive mockups |
-| Dual-sided model (worker earn + Zayzoon commission) | ✅ called out in product story, README, and UI copy |
+| Spot $312 timing gap | ✅ |
+| GigWork slate → claim → Vault | ✅ (Next.js + HTML mockups) |
+| Zayzoon advance + fee breakdown | ✅ (Next.js + HTML mockups) |
+| Accountability friend + SMS previews | ✅ (Next.js + HTML mockups) |
+| Dual paths side by side | ✅ |
 
 ---
 
@@ -192,15 +185,15 @@ front end mockups/ → interactive HTML/CSS phone prototype + screenshots
 
 **Alex** works day-to-day in Calgary. Rent hits Friday; pay lands Saturday. ChaChing shows a **$312 gap** — not because he’s broke this month, but because **timing** failed him (the same “timing tax” millions of renters and irregular-pay workers pay every cycle).
 
-He can stack gigs until the gap closes (he gets paid; **Zayzoon earns a placement commission**), or pull wages he’s already earned with Zayzoon for a small fee — instead of payday loans or overdrafts. Jamie, his accountability friend, gets a text either way — and another when Alex finishes a gig and closes the gap.
+He can stack **GigWork** shifts until the gap closes, or pull wages he’s already earned with **Zayzoon** for a small fee — instead of payday loans or overdrafts. Jamie, his accountability friend, gets a text either way — and another when Alex finishes a GigWork shift and closes the gap.
 
-Less silent overspending. More income for the worker. A real revenue stream for Zayzoon. That’s what “beyond budgeting” looks like.
+Less silent overspending. More income when he chooses to earn it. That’s what “beyond budgeting” looks like.
 
 ---
 
 ## Submission description (paste into the hackathon portal)
 
-**ChaChing** answers the daily-earner prompt: not another money-in / money-out chart, but a tool for the **cash timing gap** — when rent or bills hit before pay lands. It predicts overspend risk, then closes shortfalls with **same-day job opportunities** or **Zayzoon earned-wage advances**, plus friend accountability on slips and wins. Workers gain an **extra income stream** from gap-matched gigs; **Zayzoon gains placement commissions** on those jobs (and advance fees when users choose early access). Grounded in the real “timing tax” problem facing irregular-pay workers — useful today, and a dual-sided business beyond a ledger.
+**ChaChing** answers the daily-earner prompt: not another money-in / money-out chart, but a tool for the **cash timing gap** — when rent or bills hit before pay lands. It predicts overspend risk, then closes shortfalls with **GigWork** same-day job opportunities or **Zayzoon** earned-wage advances, plus friend accountability on slips and wins. Workers gain an **extra income stream** from gap-matched GigWork shifts, or unlock pay they’ve already earned via Zayzoon. Grounded in the real “timing tax” problem facing irregular-pay workers — useful today, beyond a ledger.
 
 ---
 
@@ -208,12 +201,12 @@ Less silent overspending. More income for the worker. A real revenue stream for 
 
 | Criterion | Weight | Where to look |
 | --- | --- | --- |
-| **Innovation & originality** | 25% | Dual revenue (worker gigs + Zayzoon commissions) · timing gap · Vault · two-sided accountability |
-| **Technical execution** | 25% | CSV→allowance/risk pipeline, risk drivers, live gig→allowance sync |
-| **Functional completeness** | 20% | Run `npm run dev` — overspend → gigs → allowance updates |
+| **Innovation & originality** | 25% | GigWork + Zayzoon dual paths · timing gap · Vault · two-sided accountability |
+| **Technical execution** | 25% | Next.js phone UI parity with mockups · CSV→allowance/risk pipeline |
+| **Functional completeness** | 20% | Run `npm run dev` — gap → GigWork or Zayzoon → SMS |
 | **Problem–solution fit** | 20% | Evidence-backed timing pain + same-day earn/advance paths daily workers actually need |
 | **UX & design** | 5% | Screenshots above + `front end mockups/index.html` |
-| **Learning & ambition** | 5% | Holistic loop (insight → earn or EWA → Vault → SMS) + partner economics |
+| **Learning & ambition** | 5% | Holistic loop (insight → GigWork or EWA → Vault → SMS) |
 
 **Screenshots for submission upload (same five as above):**
 

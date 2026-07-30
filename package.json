@@ -2,7 +2,7 @@
   "name": "msm",
   "version": "0.1.0",
   "private": true,
-  "description": "ChaChing — beyond money-in/out for daily earners. Surfaces the cash timing tax, closes gaps with same-day gigs or Zayzoon advances; workers gain income, Zayzoon gains job-placement commissions.",
+  "description": "ChaChing — beyond money-in/out for daily earners. Surfaces the cash timing tax, closes gaps with GigWork same-day shifts or Zayzoon advances.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

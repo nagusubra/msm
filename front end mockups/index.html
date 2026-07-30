@@ -6,7 +6,7 @@
     <title>Chaching — Beyond budgeting · dual revenue</title>
     <meta
       name="description"
-      content="ChaChing fights the cash timing tax for daily earners: same-day jobs and Zayzoon advances. Workers earn extra income; Zayzoon earns placement commissions. Beyond a budgeting tool."
+      content="ChaChing fights the cash timing tax for daily earners: GigWork same-day jobs and Zayzoon advances. Workers earn extra income; Zayzoon provides earned-wage access. Beyond a budgeting tool."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -34,14 +34,14 @@
             <h1>You have a <em>$312 gap</em></h1>
             <p class="lede">
               Timing tax — not broke this month. Rent hits Friday; pay lands
-              Saturday. Close it with a gig (you earn; Zayzoon gets a placement
-              commission) or an advance.
+              Saturday. Close it with GigWork (you earn from same-day shifts)
+              or a Zayzoon advance.
             </p>
             <div class="gap-actions">
-              <button type="button" class="gap-btn gig" id="pathGig" aria-pressed="false">
-                <span class="lbl">$0 fee</span>
-                <span class="name">Gig</span>
-                <span class="fee">Stack shifts → $312</span>
+              <button type="button" class="gap-btn gig" id="pathGig" aria-pressed="false" aria-label="Close gap with GigWork">
+                <span class="lbl">GigWork</span>
+                <span class="name">Gigs</span>
+                <span class="fee">$0 fee · stack → $312</span>
               </button>
               <button type="button" class="gap-btn advance" id="pathZay" aria-pressed="false">
                 <span class="lbl">Zayzoon</span>
@@ -93,9 +93,8 @@
               <h3>Zayzoon · early wage access</h3>
               <p class="lede">
                 Pull $312 of wages you’ve already worked — available instantly.
-                Repaid from Saturday’s deposit. Prefer to earn it instead? Take the
-                gig path — you get paid, Zayzoon earns a placement commission.
-                Beyond budgeting for both sides.
+                Repaid from Saturday’s deposit. Prefer to earn it instead? Take
+                GigWork — stack same-day shifts until the gap closes, $0 advance fee.
               </p>
               <div class="zay-row">
                 <span class="lbl">Amount available</span>
@@ -121,7 +120,7 @@
                 Pull $312 with Zayzoon
               </button>
               <button type="button" class="btn ghost" id="btnZayBack">
-                Compare gig path instead
+                Compare GigWork instead
               </button>
             </div>
             <div class="toast zay" id="toastZay">
@@ -130,9 +129,9 @@
             </div>
           </section>
 
-          <section class="panel" id="panelGig" aria-label="Gig slate">
+          <section class="panel" id="panelGig" aria-label="GigWork slate">
             <div class="slate-head">
-              <h3>Gig slate · close gap, then save</h3>
+              <h3>GigWork · close gap, then save</h3>
               <span class="meta">STACK TO $312+</span>
             </div>
 
@@ -141,12 +140,11 @@
                 <svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2M12 13v2"/></svg>
               </div>
               <div>
-                <strong>You earn · Zayzoon commissions</strong>
+                <strong>You earn via GigWork</strong>
                 <p>
-                  Gap gigs pay you to cover Friday. Zayzoon earns a placement
-                  commission on jobs filled here — extra revenue for both sides.
-                  Anything beyond deposits into your Chaching Vault at
-                  <span class="apy">4.50% APY</span>.
+                  Pick Calgary shifts that cover Friday’s shortfall. You get paid
+                  for the work; surplus beyond the gap deposits into your Chaching
+                  Vault at <span class="apy">4.50% APY</span>.
                 </p>
               </div>
             </div>
@@ -171,7 +169,7 @@
             <div class="slate" id="slate" role="list"></div>
 
             <p class="slate-sum" id="slateSum">
-              Select gap gigs that add up to <strong>$312</strong>
+              Select GigWork shifts that add up to <strong>$312</strong>
             </p>
 
             <button type="button" class="btn gig" id="btnGig" disabled>
@@ -627,7 +625,7 @@
       }
 
       const smsAdvanceFollowUpCopy = () => {
-        return "Good news: Alex finished a gig today and earned extra cash. Nice work closing the gap!"
+        return "Good news: Alex finished a GigWork shift today and earned extra cash. Nice work closing the gap!"
       }
 
       const smsSaveCopy = (vaultAmt) => {
@@ -639,7 +637,7 @@
         return (
           "Hi " +
           name +
-          " — good news from Alex on Chaching: they closed a $312 cash gap with gig work" +
+          " — good news from Alex on Chaching: they closed a $312 cash gap with GigWork" +
           vaultLine +
           " instead of taking an advance. Reply STOP to opt out. Msg & data rates may apply."
         )
@@ -885,7 +883,7 @@
         if (gapTotal === 0) {
           slateSum.className = "slate-sum"
           slateSum.innerHTML =
-            'Select gap gigs that add up to <strong>$312</strong>. Extra → Vault.'
+            'Select GigWork shifts that add up to <strong>$312</strong>. Extra → Vault.'
         } else if (gapTotal < GAP) {
           slateSum.className = "slate-sum"
           slateSum.innerHTML =

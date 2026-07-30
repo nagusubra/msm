@@ -17,12 +17,12 @@ export const EarnMoreBridge = ({ insight }: EarnMoreBridgeProps) => {
           You&apos;re covered for today
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          No shortfall right now. If a surprise expense hits, Calgary gigs are one
+          No shortfall right now. If a surprise expense hits, GigWork is one
           tap away.
         </p>
         <div className="mt-4">
-          <Button href={gigsHref} variant="secondary" aria-label="Browse Calgary gigs">
-            Browse gigs
+          <Button href={gigsHref} variant="secondary" aria-label="Browse GigWork shifts">
+            Browse GigWork
           </Button>
         </div>
       </section>
@@ -36,7 +36,7 @@ export const EarnMoreBridge = ({ insight }: EarnMoreBridgeProps) => {
 
   return (
     <section
-      aria-label="Get back on track with gigs"
+      aria-label="Get back on track with GigWork"
       className="rounded-2xl border border-border bg-foreground p-6 text-background"
     >
       <h2 className="text-lg font-semibold">Get back on track tonight</h2>
@@ -45,7 +45,7 @@ export const EarnMoreBridge = ({ insight }: EarnMoreBridgeProps) => {
           ? `You need about ${formatCurrency(target)} more to erase today's overspend.`
           : `A short gig block (~${formatCurrency(target)}) would rebuild breathing room.`}{" "}
         Roughly {insight.suggestedGigHours} hour
-        {insight.suggestedGigHours === 1 ? "" : "s"} of Calgary gig work at ~$22/hr.
+        {insight.suggestedGigHours === 1 ? "" : "s"} of Calgary GigWork at ~$22/hr.
       </p>
 
       <dl className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -57,7 +57,7 @@ export const EarnMoreBridge = ({ insight }: EarnMoreBridgeProps) => {
         </div>
         <div className="rounded-xl bg-background/10 p-4">
           <dt className="text-xs uppercase tracking-wide text-background/70">
-            Suggested gig time
+            Suggested GigWork time
           </dt>
           <dd className="mt-1 text-2xl font-semibold">
             {insight.suggestedGigHours}h
@@ -70,9 +70,9 @@ export const EarnMoreBridge = ({ insight }: EarnMoreBridgeProps) => {
           href={gigsHref}
           variant="secondary"
           className="bg-background text-foreground hover:bg-background/90"
-          aria-label="Open Calgary gig swipe deck"
+          aria-label="Open GigWork"
         >
-          Swipe Calgary gigs
+          Open GigWork
         </Button>
       </div>
     </section>

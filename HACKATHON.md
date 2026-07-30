@@ -8,14 +8,14 @@ Daily earners don’t mainly need prettier monthly charts. They need help with t
 - ~**1 in 3** wage workers have income that varies month to month (Federal Reserve SHED)
 - **~54% of gig workers** say they need same-day access to funds; side income often covers essentials ([PYMNTS](https://www.pymnts.com/payroll/2026/welcome-to-the-transactional-economy/))
 
-**ChaChing** surfaces that timing gap, predicts overspend risk, then closes it with **same-day jobs** and/or **Zayzoon earned-wage advances**, plus social accountability.
+**ChaChing** surfaces that timing gap, predicts overspend risk, then closes it with **GigWork** (same-day jobs) and/or **Zayzoon** earned-wage advances, plus social accountability.
 
-**Unique value proposition — dual revenue beyond a budgeting tool:**
+**Unique value proposition — beyond a budgeting tool:**
 
-- **Workers** earn from gigs matched to today’s shortfall (safer bridge than payday/overdraft spirals)
-- **Zayzoon** earns **placement commissions** on jobs ChaChing fills (and advance fees when users choose early wage access)
+- **Workers** earn from **GigWork** shifts matched to today’s shortfall (safer bridge than payday/overdraft spirals)
+- **Zayzoon** provides transparent earned-wage advances when earning tonight isn’t realistic
 
-That flywheel is how we satisfy Innovation + Problem–Solution Fit: valuable for the daily earner *and* for the wage-access partner.
+That dual-path loop is how we satisfy Innovation + Problem–Solution Fit: valuable for the daily earner with concrete same-day actions.
 
 **Portal description (copy/paste):** see README → “Submission description”.
 

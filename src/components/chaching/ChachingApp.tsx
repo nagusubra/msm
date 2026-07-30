@@ -188,8 +188,8 @@ export const ChachingApp = () => {
 
   const smsAdvanceBody = `Hi ${friend?.name ?? "there"}. Alex shared Chaching updates with you. They got some of their pay early today to cover a shortfall before payday. No action needed. Reply STOP to opt out of Chaching texts. Msg & data rates may apply.`
   const smsAdvanceFollowUp =
-    "Good news: Alex finished a gig today and earned extra cash. Nice work closing the gap!"
-  const smsSaveBody = `Hi ${friend?.name ?? "there"} — good news from Alex on Chaching: they closed a $${GAP_AMOUNT} cash gap with gig work${
+    "Good news: Alex finished a GigWork shift today and earned extra cash. Nice work closing the gap!"
+  const smsSaveBody = `Hi ${friend?.name ?? "there"} — good news from Alex on Chaching: they closed a $${GAP_AMOUNT} cash gap with GigWork${
     lastVault > 0
       ? ` and added $${lastVault} to their high-interest Chaching Vault`
       : ""
@@ -201,8 +201,8 @@ export const ChachingApp = () => {
       ready: false,
       html: (
         <>
-          Select gap gigs that add up to <strong>${GAP_AMOUNT}</strong>. Extra →
-          Vault.
+          Select GigWork shifts that add up to <strong>${GAP_AMOUNT}</strong>.
+          Extra → Vault.
         </>
       ),
     }
@@ -313,14 +313,14 @@ export const ChachingApp = () => {
             </h1>
             <p className="relative mt-2 mb-3.5 max-w-[34ch] text-[13px] leading-[1.4] text-[rgba(247,244,239,0.68)]">
               Timing tax — not broke this month. Rent hits Friday; pay lands
-              Saturday. Close it with a gig (you earn; Zayzoon gets a placement
-              commission) or an advance.
+              Saturday. Close it with GigWork (you earn from same-day shifts) or
+              a Zayzoon advance.
             </p>
             <div className="relative grid grid-cols-2 gap-2">
               <button
                 type="button"
                 aria-pressed={path === "gig"}
-                aria-label="Close gap with gig stack"
+                aria-label="Close gap with GigWork"
                 onClick={() => handleOpenPath("gig")}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") handleOpenPath("gig")
@@ -332,11 +332,11 @@ export const ChachingApp = () => {
                 )}
               >
                 <span className="mb-1 block font-[family-name:var(--font-mono)] text-[9px] font-semibold tracking-[0.08em] uppercase opacity-75">
-                  $0 fee
+                  GigWork
                 </span>
-                <span className="mb-0.5 block text-[15px] font-bold">Gig</span>
+                <span className="mb-0.5 block text-[15px] font-bold">Gigs</span>
                 <span className="block font-[family-name:var(--font-mono)] text-[11px] font-semibold">
-                  Stack shifts → ${GAP_AMOUNT}
+                  $0 fee · stack → ${GAP_AMOUNT}
                 </span>
               </button>
               <button
@@ -500,9 +500,8 @@ export const ChachingApp = () => {
                 <p className="mb-3 text-[12px] leading-[1.4] text-fog">
                   Pull ${GAP_AMOUNT} of wages you&apos;ve already worked —
                   available instantly. Repaid from Saturday&apos;s deposit.
-                  Prefer to earn it instead? Take the gig path — you get paid,
-                  Zayzoon earns a placement commission. Beyond budgeting for both
-                  sides.
+                  Prefer to earn it instead? Take GigWork — stack same-day
+                  shifts until the gap closes, $0 advance fee.
                 </p>
                 <ZayRow
                   label="Amount available"
@@ -537,10 +536,10 @@ export const ChachingApp = () => {
                   type="button"
                   onClick={() => handleOpenPath("gig")}
                   tabIndex={0}
-                  aria-label="Compare gig path instead"
+                  aria-label="Compare GigWork instead"
                   className="mt-2 block w-full cursor-pointer rounded-xl border-0 bg-[var(--panel-mute)] px-4 py-3 text-center text-sm font-semibold text-ink transition-[filter,transform] duration-150 hover:-translate-y-px hover:brightness-105 focus-visible:outline-none"
                 >
-                  Compare gig path instead
+                  Compare GigWork instead
                 </button>
               </div>
               {toastZay && (
@@ -554,16 +553,16 @@ export const ChachingApp = () => {
             </section>
           )}
 
-          {/* Gig slate */}
+          {/* GigWork slate */}
           {path === "gig" && (
             <section
               ref={panelGigRef}
-              aria-label="Gig slate"
+              aria-label="GigWork slate"
               className="animate-rise mb-3"
             >
               <div className="mb-2 flex items-baseline justify-between px-0.5">
                 <h3 className="m-0 text-[13px] font-semibold">
-                  Gig slate · close gap, then save
+                  GigWork · close gap, then save
                 </h3>
                 <span className="font-[family-name:var(--font-mono)] text-[10px] font-semibold tracking-[0.04em] text-fog-dim">
                   STACK TO ${GAP_AMOUNT}+
@@ -585,12 +584,12 @@ export const ChachingApp = () => {
                 </div>
                 <div>
                   <strong className="mb-0.5 block text-[13px] text-ink">
-                    You earn · Zayzoon commissions
+                    You earn via GigWork
                   </strong>
                   <p className="m-0 text-[12px] leading-[1.4] text-fog">
-                    Gap gigs pay you to cover Friday. Zayzoon earns a placement
-                    commission on jobs filled here — extra revenue for both sides.
-                    Anything beyond deposits into your Chaching Vault at{" "}
+                    Pick Calgary shifts that cover Friday&apos;s shortfall. You
+                    get paid for the work; surplus beyond the gap deposits into
+                    your Chaching Vault at{" "}
                     <span className="font-[family-name:var(--font-mono)] font-semibold text-[#0284c7]">
                       {VAULT_APY} APY
                     </span>
@@ -741,7 +740,7 @@ export const ChachingApp = () => {
                 disabled={!gapClosed}
                 onClick={handleClaimGig}
                 tabIndex={0}
-                aria-label="Claim gig slate"
+                aria-label="Claim GigWork slate"
                 className="mt-3 block w-full cursor-pointer rounded-xl border-0 bg-[var(--ok)] px-4 py-3 text-center text-sm font-semibold text-white transition-[filter,transform] duration-150 hover:-translate-y-px hover:brightness-105 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0"
               >
                 {vaultTotal > 0

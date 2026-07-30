@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="mt-auto border-t border-border bg-background">
       <Container className="flex h-16 items-center justify-between text-sm text-muted-foreground">
         <p>© {year} ChaChing</p>
-        <p>Timing tax · dual revenue</p>
+        <p>Timing tax · GigWork + Zayzoon</p>
       </Container>
     </footer>
   )

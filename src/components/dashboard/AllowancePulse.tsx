@@ -137,9 +137,9 @@ export const AllowancePulse = ({ insight }: AllowancePulseProps) => {
         <div className="mt-6">
           <Button
             href={`/gigs?worker=${encodeURIComponent(insight.allowance.workerId)}&date=${encodeURIComponent(insight.allowance.date)}`}
-            aria-label="Find Calgary gig work"
+            aria-label="Find Calgary GigWork"
           >
-            Find gig work
+            Find GigWork
           </Button>
         </div>
       )}

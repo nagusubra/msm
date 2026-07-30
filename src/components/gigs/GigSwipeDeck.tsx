@@ -170,13 +170,13 @@ export const GigSwipeDeck = ({ gigs, workerId, date }: GigSwipeDeckProps) => {
     return (
       <div className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-muted/30 p-8 text-center">
         <p className="text-lg font-semibold text-foreground">
-          You&apos;ve reviewed all Calgary gigs
+          You&apos;ve reviewed all GigWork shifts
         </p>
         <p className="text-sm text-muted-foreground">
-          Accepted {acceptedCount} gig{acceptedCount === 1 ? "" : "s"} for{" "}
+          Accepted {acceptedCount} shift{acceptedCount === 1 ? "" : "s"} for{" "}
           {formatCurrency(acceptedIncome)} today.
         </p>
-        <Button href={dashboardHref}>Back to dashboard</Button>
+        <Button href={dashboardHref}>Back to home</Button>
       </div>
     )
   }
@@ -185,7 +185,7 @@ export const GigSwipeDeck = ({ gigs, workerId, date }: GigSwipeDeckProps) => {
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-emerald-500/10 px-4 py-3">
         <p className="text-sm text-foreground">
-          Earned from gigs today:{" "}
+          Earned from GigWork today:{" "}
           <span className="font-semibold">{formatCurrency(acceptedIncome)}</span>
           {acceptedCount > 0 ? (
             <span className="text-muted-foreground">
@@ -210,7 +210,7 @@ export const GigSwipeDeck = ({ gigs, workerId, date }: GigSwipeDeckProps) => {
         onPointerCancel={handlePointerUp}
         onKeyDown={handleKeyDown}
         role="region"
-        aria-label="Gig swipe deck. Swipe right or press Enter to accept, swipe left or press Backspace to skip."
+        aria-label="GigWork swipe deck. Swipe right or press Enter to accept, swipe left or press Backspace to skip."
         tabIndex={0}
       >
         {nextGig ? (
@@ -231,14 +231,14 @@ export const GigSwipeDeck = ({ gigs, workerId, date }: GigSwipeDeckProps) => {
         <Button
           variant="secondary"
           onClick={() => handleSkip(currentGig)}
-          aria-label="Skip this gig"
+          aria-label="Skip this GigWork shift"
           className="min-w-28"
         >
           Skip
         </Button>
         <Button
           onClick={() => handleAccept(currentGig)}
-          aria-label="Accept this gig"
+          aria-label="Accept this GigWork shift"
           className="min-w-28"
         >
           Accept

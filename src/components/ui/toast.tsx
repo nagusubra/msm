@@ -119,7 +119,7 @@ export const SOCIAL_TOASTS = {
   },
   gigAccepted: {
     title: "Friends notified",
-    body: "Your friends have been notified about your gig work!",
+    body: "Your friends have been notified about your GigWork shift!",
     tone: "pride" as const,
   },
 }
