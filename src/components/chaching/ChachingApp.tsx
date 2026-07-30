@@ -664,7 +664,6 @@ export const ChachingApp = () => {
                     <button
                       key={gig.id}
                       type="button"
-                      role="listitem"
                       aria-pressed={on}
                       aria-label={`${gig.title}, $${gig.pay}${gig.vault ? ", to Vault" : ""}`}
                       tabIndex={0}
