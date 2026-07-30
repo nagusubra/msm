@@ -311,10 +311,10 @@ export const ChachingApp = () => {
                 ${GAP_AMOUNT} gap
               </em>
             </h1>
-            <p className="relative mt-2 mb-3.5 max-w-[32ch] text-[13px] leading-[1.4] text-[rgba(247,244,239,0.68)]">
-              You earn enough this month. Rent hits Friday — pay lands Saturday.
-              Close it with a gig (you earn; Zayzoon gets a placement commission)
-              or an advance.
+            <p className="relative mt-2 mb-3.5 max-w-[34ch] text-[13px] leading-[1.4] text-[rgba(247,244,239,0.68)]">
+              Timing tax — not broke this month. Rent hits Friday; pay lands
+              Saturday. Close it with a gig (you earn; Zayzoon gets a placement
+              commission) or an advance.
             </p>
             <div className="relative grid grid-cols-2 gap-2">
               <button

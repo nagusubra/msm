@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Chaching",
   },
   description:
-    "Beyond budgeting: ChaChing closes daily cash gaps with same-day jobs and Zayzoon advances — workers earn extra income; Zayzoon earns placement commissions. Timing · not totals.",
+    "Beyond budgeting for daily earners: ChaChing fights the cash timing tax with same-day gigs and Zayzoon advances — workers earn extra income; Zayzoon earns placement commissions.",
 }
 
 export default function RootLayout({

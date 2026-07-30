@@ -1,15 +1,21 @@
 Prompt: "Build something that goes beyond the typical budget feature of money in / money out — imagine what a worker who earns daily would actually find valuable when managing their day-to-day earnings in a budgeting tool."
 
-## Our pitch (ChaChing) — dual revenue beyond budgeting
+## Our pitch (ChaChing) — research-backed, beyond budgeting
 
-ChaChing is not another money-in / money-out ledger. It surfaces **timing gaps** for daily earners, then closes them with **same-day job opportunities** and/or **Zayzoon earned-wage advances**, plus social accountability.
+Daily earners don’t mainly need prettier monthly charts. They need help with the **timing tax**: fixed bills (rent, phone) vs variable / delayed pay. Evidence:
 
-**Unique value proposition:** the product creates an **additional revenue stream for both sides** —
+- ~**31%** of surveyed renters sometimes lack cash when rent is due despite having earnings — a sequencing problem ([HousingWire](https://www.housingwire.com/articles/rent-timing-tax-workers/))
+- ~**1 in 3** wage workers have income that varies month to month (Federal Reserve SHED)
+- **~54% of gig workers** say they need same-day access to funds; side income often covers essentials ([PYMNTS](https://www.pymnts.com/payroll/2026/welcome-to-the-transactional-economy/))
 
-- **Workers** earn from gigs matched to today’s shortfall
-- **Zayzoon** earns **placement commissions** on jobs ChaChing fills for those users (and advance fees when they choose early wage access)
+**ChaChing** surfaces that timing gap, predicts overspend risk, then closes it with **same-day jobs** and/or **Zayzoon earned-wage advances**, plus social accountability.
 
-That partner flywheel is how we go beyond a typical budgeting tool — valuable for the daily earner *and* for the wage-access partner.
+**Unique value proposition — dual revenue beyond a budgeting tool:**
+
+- **Workers** earn from gigs matched to today’s shortfall (safer bridge than payday/overdraft spirals)
+- **Zayzoon** earns **placement commissions** on jobs ChaChing fills (and advance fees when users choose early wage access)
+
+That flywheel is how we satisfy Innovation + Problem–Solution Fit: valuable for the daily earner *and* for the wage-access partner.
 
 **Portal description (copy/paste):** see README → “Submission description”.
 
