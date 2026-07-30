@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/session-start.sh"
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": ".cursor/hooks/guard-inputs.sh",
+        "matcher": "Write|StrReplace|EditNotebook"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/no-money-literals.sh"
+      }
+    ],
+    "afterShellExecution": [
+      {
+        "command": ".cursor/hooks/track-verify.sh"
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/verify-before-done.sh"
+      }
+    ]
+  }
+}

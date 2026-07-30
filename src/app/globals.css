@@ -1,34 +1,107 @@
 @import "tailwindcss";
 
+/* TILL design tokens — the only place colors, type scale, and motion live.
+   A hardcoded hex or arbitrary size anywhere else is a bug (.cursor/rules/ui.mdc).
+   Color is semantic here: amber vs haze is the product's core distinction
+   (money you have vs money you are owed), rust marks a cliff and nothing else. */
 :root {
-  --background: #fafafa;
-  --foreground: #171717;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
+  --clock-slate: #12161c; /* page base */
+  --clock-raise: #1b222b; /* card surface */
+  --clock-edge: #232c38; /* hairline / divider */
+  --punch-bone: #e8e4da; /* text */
+  --punch-bone-dim: #a9a49a; /* secondary text */
+  --wage-amber: #e0a244; /* confirmed money: banked, paid, advanceable */
+  --pending-haze: #6e7c8c; /* estimated / stale / not advanceable */
+  --cliff-rust: #c2503a; /* cliff days and shortfalls ONLY */
+
+  --font-display: var(--font-archivo-condensed), "Oswald", system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-money: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --type-hero: 2.75rem; /* the headline figure */
+  --type-h2: 1.375rem;
+  --type-body: 0.9375rem; /* 15px */
+  --type-small: 0.8125rem;
+  --type-micro: 0.6875rem; /* labels, uppercase tracking */
+
+  --frame-width: 390px; /* phone frame on desktop */
+  --frame-height: 844px; /* tall phone viewport on desktop */
+  --radius-card: 12px;
+  --radius-phone: 2.4rem;
+  --safe-top: 3.25rem; /* status bar + island clearance */
+  --safe-bottom: 1.35rem; /* home indicator clearance */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --draw-duration: 1100ms; /* the one animation: the cliff line drawing */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --muted: #18181b;
-    --muted-foreground: #a1a1aa;
-    --border: #27272a;
-  }
+  --color-slate: var(--clock-slate);
+  --color-raise: var(--clock-raise);
+  --color-edge: var(--clock-edge);
+  --color-bone: var(--punch-bone);
+  --color-bone-dim: var(--punch-bone-dim);
+  --color-amber: var(--wage-amber);
+  --color-haze: var(--pending-haze);
+  --color-rust: var(--cliff-rust);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-money);
+  --font-display: var(--font-display);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--clock-slate);
+  color: var(--punch-bone);
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Every money figure. Tabular figures are not optional: proportional digits in a
+   money column is the fastest visual tell that a design was generated. */
+.money {
+  font-family: var(--font-money);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Step transition between the three screens. One direction-aware slide plus a
+   fade, short enough to read as responsiveness rather than as an animation. */
+@keyframes step-in-forward {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes step-in-back {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.step-forward {
+  animation: step-in-forward 260ms var(--ease-out) both;
+}
+
+.step-back {
+  animation: step-in-back 260ms var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

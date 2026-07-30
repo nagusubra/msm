@@ -1,0 +1,18 @@
+---
+description: Engine purity and math rules
+globs:
+  - src/lib/**/*.ts
+  - scripts/**/*.ts
+alwaysApply: false
+---
+
+# Engine rules
+
+Canonical: `AGENTS.md`. Detail: `.cursor/skills/engine-conventions/SKILL.md`.
+
+- **Pure.** No `react`, `fetch`, `fs` in `src/lib`. Scripts may read files; math must come from `src/lib`.
+- **No system clock.** `now: string` from `meta.today` only.
+- **Money via `round2`.** Format only at the edge with `formatMoney`.
+- **Explicit types on every export.** No `any`.
+- **Ignore provided balance columns.** Derive from earnings and obligations.
+- Assert against `docs/numbers.md`. Run `npm test` + `npm run typecheck` and read the output.

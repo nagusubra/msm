@@ -1,0 +1,36 @@
+---
+alwaysApply: true
+---
+
+# TILL — Cursor project rules
+
+Index: `AGENTS.md`. Contract: `docs/spec.md`. Figures: `docs/numbers.md` (single source of truth).
+
+## Product
+
+Cash-timing solver for shift workers (ZayZoon hackathon). Loop only: **cliff detected → gap priced → route chosen.** Routes: `/` and `/math`.
+
+## Load-bearing rules
+
+1. **Zero money literals in JSX** — every figure from the engine or seed via props/`formatMoney`.
+2. **Ledger is derived** — never plot `ending_balance_cad` / `running_balance_cad`.
+3. **Frozen clock** — `meta.today` (`2026-05-27T18:40`); no `Date.now()` / `new Date()` feeding numbers.
+4. **Money** — `type Money = number`, CAD 2dp, `round2()`, `formatMoney` only renderer.
+5. **`src/lib` is pure** — no React, fetch, fs, randomness.
+6. **No `any` at module boundaries.**
+7. **Semantic color** — amber = confirmed money; haze = estimated/stale; rust = cliff/shortfall ONLY.
+8. **Numbers reconcile** — change `docs/numbers.md` first, then grep survivors.
+9. **No invented data** — seed/cohort rows are the dataset.
+10. **No TODO / placeholder** in shipped UI.
+
+## Gate
+
+`npm run check` before claiming done. Hooks enforce seed/spec protection, money-literal warnings, verify-before-stop.
+
+## Skills & review
+
+Invoke `.cursor/skills/*`. Before done on engine/UI: Task `diff-reviewer` / `judge-simulator` using `.cursor/agents/`.
+
+## Conflicts
+
+TILL wins over generic front-end rules: tokens live in `globals.css`; verify with `npm run check` (do not stop at "confirm then code").

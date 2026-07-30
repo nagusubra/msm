@@ -1,0 +1,15 @@
+---
+description: Seed, cohort, and canonical numbers
+globs:
+  - public/seed.json
+  - public/cohort.json
+  - docs/numbers.md
+alwaysApply: false
+---
+
+# Data rules
+
+- **`public/seed.json` is read-only.** Do not add, edit, or round rows.
+- **`public/cohort.json` is generated** by `npm run analyze`. Never hand-edit.
+- **`docs/numbers.md` is canonical.** Edit here first, then grep the old value repo-wide.
+- Computed figures must be computed. Scripts that only reprint constants must say so.

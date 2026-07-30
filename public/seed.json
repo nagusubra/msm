@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "dataset": "ZayZoon Cursor hackathon, 220 Alberta workers, 2026-04-01..2026-06-30",
+    "worker_id": "W-0131",
+    "today": "2026-05-27T18:40",
+    "opening_balance_2026_04_01": 900.0,
+    "derivation_note": "balance is DERIVED from earnings inflow minus obligation outflow. ending_balance_cad and running_balance_cad in the source CSVs do NOT reconcile (2.3% of weeks, 20.5% of txns) and are ignored.",
+    "validation": {
+      "engine_predicted_shortfall": 58.39,
+      "worker_actual_advance_next_evening": 55.92,
+      "actual_advance_fee": 2.8,
+      "actual_advance_reason": "childcare",
+      "actual_advance_at": "2026-05-28T19:01"
+    }
+  },
+  "worker": {
+    "id": "W-0131",
+    "city": "Calgary",
+    "occupation": "Event / venue staff",
+    "pay_type": "hourly",
+    "typical_daily_net": 120.01,
+    "net_hourly": 15.54,
+    "income_volatility": 0.5,
+    "household_size": 3,
+    "dependents": 2,
+    "tenure_months": 3,
+    "commute": "transit",
+    "rent_burden": "high",
+    "has_bank_account": true,
+    "uses_prepaid_card": false,
+    "has_side_gig": false,
+    "monthly_income": 1965.41,
+    "monthly_obligations": 1634.0,
+    "same_day_pay_rate": 0.36
+  },
+  "obligations": [
+    {
+      "name": "Rent",
+      "category": "housing",
+      "amount": 1310.0,
+      "due_day": 1,
+      "autopay": false,
+      "essential": true
+    },
+    {
+      "name": "Mobile phone",
+      "category": "phone",
+      "amount": 41.0,
+      "due_day": 14,
+      "autopay": true,
+      "essential": true
+    },
+    {
+      "name": "Utilities",
+      "category": "utilities",
+      "amount": 149.0,
+      "due_day": 25,
+      "autopay": true,
+      "essential": true
+    },
+    {
+      "name": "Installment / loan payment",
+      "category": "debt_payment",
+      "amount": 134.0,
+      "due_day": 21,
+      "autopay": true,
+      "essential": true
+    }
+  ],
+  "shifts": [
+    {
+      "date": "2026-05-07",
+      "shift": "split",
+      "hours": 4.7,
+      "net": 83.18,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-12",
+      "shift": "evening",
+      "hours": 4.1,
+      "net": 81.8,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-14",
+      "shift": "evening",
+      "hours": 5.5,
+      "net": 102.98,
+      "paid_same_day": true,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-15",
+      "shift": "split",
+      "hours": 5.1,
+      "net": 91.03,
+      "paid_same_day": true,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-18",
+      "shift": "night",
+      "hours": 7.9,
+      "net": 74.03,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-19",
+      "shift": "evening",
+      "hours": 8.6,
+      "net": 110.92,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-21",
+      "shift": "evening",
+      "hours": 9.3,
+      "net": 179.42,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-22",
+      "shift": "night",
+      "hours": 4.3,
+      "net": 69.5,
+      "paid_same_day": true,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-23",
+      "shift": "day",
+      "hours": 8.4,
+      "net": 104.14,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-24",
+      "shift": "day",
+      "hours": 8.3,
+      "net": 142.29,
+      "paid_same_day": true,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-25",
+      "shift": "day",
+      "hours": 5.9,
+      "net": 59.6,
+      "paid_same_day": false,
+      "confirmed": true
+    },
+    {
+      "date": "2026-05-28",
+      "shift": "split",
+      "hours": 8.1,
+      "net": 137.38,
+      "paid_same_day": false,
+      "confirmed": false
+    },
+    {
+      "date": "2026-05-31",
+      "shift": "night",
+      "hours": 6.6,
+      "net": 71.53,
+      "paid_same_day": true,
+      "confirmed": false
+    }
+  ],
+  "advances": [
+    {
+      "id": "A-00302",
+      "requested_at": "2026-04-10T17:51",
+      "amount": 56.42,
+      "fee": 1.99,
+      "status": "repaid",
+      "repayment_source": "manual",
+      "reason": "rent_gap"
+    },
+    {
+      "id": "A-00301",
+      "requested_at": "2026-04-15T22:03",
+      "amount": 26.95,
+      "fee": 1.99,
+      "status": "repaid",
+      "repayment_source": "manual",
+      "reason": "bill_due"
+    },
+    {
+      "id": "A-00303",
+      "requested_at": "2026-04-22T19:16",
+      "amount": 88.33,
+      "fee": 2.65,
+      "status": "repaid",
+      "repayment_source": "next_payroll",
+      "reason": "emergency"
+    },
+    {
+      "id": "A-00299",
+      "requested_at": "2026-05-14T17:27",
+      "amount": 59.81,
+      "fee": 4.19,
+      "status": "repaid",
+      "repayment_source": "next_payroll",
+      "reason": "groceries"
+    },
+    {
+      "id": "A-00304",
+      "requested_at": "2026-05-28T19:01",
+      "amount": 55.92,
+      "fee": 2.8,
+      "status": "repaid",
+      "repayment_source": "next_payroll",
+      "reason": "childcare"
+    },
+    {
+      "id": "A-00306",
+      "requested_at": "2026-06-17T17:29",
+      "amount": 61.12,
+      "fee": 1.99,
+      "status": "repaid",
+      "repayment_source": "same_day_earnings",
+      "reason": "rent_gap"
+    },
+    {
+      "id": "A-00305",
+      "requested_at": "2026-06-22T19:56",
+      "amount": 40.86,
+      "fee": 2.04,
+      "status": "repaid",
+      "repayment_source": "next_payroll",
+      "reason": "bill_due"
+    },
+    {
+      "id": "A-00300",
+      "requested_at": "2026-06-30T20:08",
+      "amount": 78.45,
+      "fee": 5.49,
+      "status": "repaid",
+      "repayment_source": "manual",
+      "reason": "other"
+    }
+  ],
+  "limits": {
+    "daily_max": 200,
+    "period_pct": 0.5,
+    "period_max": 1000,
+    "min_request": 20,
+    "observed_fee_range": [
+      1.99,
+      5.49
+    ],
+    "observed_fee_median": 2.35,
+    "boost_bonus_range": [
+      0.05,
+      0.25
+    ],
+    "gas_card_bonus": 0.05
+  },
+  "hours_feed": {
+    "last_sync": "2026-05-25T04:00",
+    "status": "stale",
+    "days_stale": 2,
+    "unconfirmed_shifts": 2,
+    "estimated_unconfirmed_net": 205.3,
+    "escalation_target": "employer_payroll_admin",
+    "draft": "Hi, my ZayZoon hours haven't updated since May 25. Can someone check the time export to payroll?"
+  },
+  "extra_work": [
+    {
+      "source": "employer_shift",
+      "label": "Open shift, Sat May 30, 10:00-14:00",
+      "hours": 4,
+      "est_net": 62.15,
+      "payout_days": 0,
+      "conflicts": false
+    },
+    {
+      "source": "employer_shift",
+      "label": "Open shift, Sun May 31, 06:00-14:00",
+      "hours": 8,
+      "est_net": 124.29,
+      "payout_days": 0,
+      "conflicts": true
+    },
+    {
+      "source": "gig",
+      "label": "Delivery, Thu May 28 evening",
+      "hours": 3,
+      "est_net": 46.61,
+      "payout_days": 1,
+      "conflicts": false
+    },
+    {
+      "source": "gig",
+      "label": "Event teardown, Fri May 29 night",
+      "hours": 4,
+      "est_net": 62.15,
+      "payout_days": 2,
+      "conflicts": false
+    },
+    {
+      "source": "gig",
+      "label": "Warehouse casual, Fri May 29 AM",
+      "hours": 6,
+      "est_net": 93.22,
+      "payout_days": 7,
+      "conflicts": false
+    }
+  ],
+  "circle": [
+    {
+      "name": "Dev",
+      "state": "6 days under"
+    },
+    {
+      "name": "Amara",
+      "state": "4 days under"
+    }
+  ],
+  "unlock_code": "4417",
+  "cohort_stats": {
+    "workers": 220,
+    "shifts": 12204,
+    "advances": 535,
+    "obligations": 849,
+    "transactions": 31727,
+    "advances_in_evening_window_pct": 100,
+    "oblig_dollars_on_1st_or_15th_pct": 85,
+    "advances_under_one_shift_pct": 99,
+    "median_advance_as_share_of_shift": 0.42,
+    "shifts_not_paid_same_day_pct": 60,
+    "repeat_next_week_pct": 27.8,
+    "baseline_next_week_pct": 11.4,
+    "advances_within_14d_of_prior_pct": 48,
+    "median_implied_apr_pct": 421,
+    "backtest_avoidable_advances_pct": 39,
+    "backtest_avoidable_fees_pct": 37,
+    "workers_with_derived_negative_day_pct": 93,
+    "median_negative_days_per_worker": 19,
+    "balance_col_reconcile_pct": 2.3,
+    "credits_followed_by_balance_drop_pct": 34.1
+  }
+}

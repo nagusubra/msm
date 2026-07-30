@@ -1,0 +1,19 @@
+---
+description: UI tokens, money literals, semantic color
+globs:
+  - src/app/**/*.tsx
+  - src/components/**/*.tsx
+  - src/app/**/*.css
+alwaysApply: false
+---
+
+# UI rules
+
+Canonical: `AGENTS.md`. Detail: `.cursor/skills/design-conventions/SKILL.md`.
+
+- **Zero money literals** in JSX. Figures arrive as props from the engine.
+- **Presentational components only.** Math in `src/lib`, called from pages.
+- **Tokens only** in `globals.css`. No hardcoded hex or arbitrary type sizes.
+- **Semantic color:** amber = confirmed; haze = estimated/stale; rust = cliff/shortfall only.
+- **`.money`** tabular figures. One cliff-draw animation; respect `prefers-reduced-motion`.
+- Mobile-first 390px phone shell. No em dashes in shipped copy. No TODO/placeholder.

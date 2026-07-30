@@ -1,0 +1,1737 @@
+{
+  "meta": {
+    "generated_by": "npm run analyze (scripts/analyze.ts)",
+    "generated_from": [
+      "daily_earnings.csv",
+      "earned_wage_advances.csv",
+      "recurring_obligations.csv",
+      "transactions.csv",
+      "weekly_cashflow_summary.csv",
+      "workers.csv"
+    ],
+    "window": "2026-04-01..2026-06-30",
+    "window_days": 91,
+    "today": "2026-05-27T18:40",
+    "hours_feed_last_sync": "2026-05-25T04:00",
+    "opening_balance_rule": "The persona ledger opens at $900.00 on 2026-04-01 (seed.meta.opening_balance_2026_04_01); the cohort ledger opens every worker at $0.00 on 2026-04-01 so a negative day means outflow outran earnings inside the window rather than reflecting an unknown starting buffer, and neither ledger ever reads weekly_cashflow_summary.ending_balance_cad or transactions.running_balance_cad, which do not reconcile.",
+    "ignored_columns": [
+      "weekly_cashflow_summary.ending_balance_cad",
+      "transactions.running_balance_cad"
+    ]
+  },
+  "cohort": {
+    "workers": {
+      "value": 220,
+      "computed_from": "workers.csv",
+      "method": "row count"
+    },
+    "shifts": {
+      "value": 12204,
+      "computed_from": "daily_earnings.csv",
+      "method": "row count"
+    },
+    "advances": {
+      "value": 535,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "row count"
+    },
+    "obligations": {
+      "value": 849,
+      "computed_from": "recurring_obligations.csv",
+      "method": "row count"
+    },
+    "transactions": {
+      "value": 31726,
+      "computed_from": "transactions.csv",
+      "method": "row count, header excluded"
+    },
+    "advances_in_evening_window_pct": {
+      "value": 100,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "share of requested_at timestamps whose hour is 17..23 inclusive"
+    },
+    "peak_advance_hour": {
+      "value": 23,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "modal hour of requested_at (86 of 535 requests)"
+    },
+    "oblig_dollars_on_1st_or_15th_mean_pct": {
+      "value": 85.2,
+      "computed_from": "recurring_obligations.csv",
+      "method": "per worker, monthly-frequency dollars with due_day_of_month 1 or 15 over that worker's monthly total; mean across 220 workers"
+    },
+    "oblig_dollars_on_1st_or_15th_median_pct": {
+      "value": 88.2,
+      "computed_from": "recurring_obligations.csv",
+      "method": "median of the same per-worker shares"
+    },
+    "workers_with_half_oblig_on_1st_or_15th_pct": {
+      "value": 97.3,
+      "computed_from": "recurring_obligations.csv",
+      "method": "share of workers whose per-worker concentration is >= 50%"
+    },
+    "advances_under_one_mean_shift_pct": {
+      "value": 99.6,
+      "computed_from": "earned_wage_advances.csv + daily_earnings.csv",
+      "method": "share of advances whose amount_cad is below that worker's mean net_pay_cad per shift (535 comparable advances)"
+    },
+    "median_advance_as_share_of_shift": {
+      "value": 0.42,
+      "computed_from": "earned_wage_advances.csv + daily_earnings.csv",
+      "method": "median of amount_cad / that worker's mean shift net, as a fraction of one shift"
+    },
+    "shifts_not_paid_same_day_pct": {
+      "value": 60.1,
+      "computed_from": "daily_earnings.csv",
+      "method": "share of shift rows with paid_same_day = 0"
+    },
+    "repeat_advance_next_week_pct": {
+      "value": 29.5,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "P(advance in week w+1 | advance in week w) over 14 ISO weeks from 2026-03-30, 451 borrowing weeks"
+    },
+    "baseline_advance_next_week_pct": {
+      "value": 12.5,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "P(advance in week w+1 | no advance in week w), 2409 quiet weeks"
+    },
+    "repeat_advance_multiple": {
+      "value": 2.35,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "repeat rate divided by baseline rate"
+    },
+    "advances_within_14d_of_prior_pct": {
+      "value": 47.7,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "share of all 535 advances taken within 14 days of the same worker's previous advance"
+    },
+    "median_implied_apr_pct": {
+      "value": 421,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "median of (fee_cad / amount_cad) x (365 / elapsed days from requested_at to repaid_at, timestamp precision) over the 452 repaid advances with a known term; fee-free advances stay in at 0%"
+    },
+    "advance_fee_min": {
+      "value": 1.99,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "minimum fee_cad across the 444 fee-bearing advances (91 rows carry no fee)"
+    },
+    "advance_fee_median": {
+      "value": 2.39,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "median fee_cad, fee-bearing advances"
+    },
+    "advance_fee_max": {
+      "value": 10.7,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "maximum fee_cad, fee-bearing advances"
+    },
+    "advance_fees_total": {
+      "value": 1434.63,
+      "computed_from": "earned_wage_advances.csv",
+      "method": "sum of fee_cad across every advance in the window"
+    },
+    "workers_with_negative_derived_day_pct": {
+      "value": 93.2,
+      "computed_from": "daily_earnings.csv + recurring_obligations.csv",
+      "method": "deriveLedger per worker, opening $0.00, 2026-04-01..2026-06-30; share of 220 workers with >= 1 day at a negative derived balance"
+    },
+    "median_negative_days_per_worker": {
+      "value": 19,
+      "computed_from": "daily_earnings.csv + recurring_obligations.csv",
+      "method": "median count of negative derived days per worker, out of 91"
+    },
+    "workers_with_bill_over_two_weeks_income_pct": {
+      "value": 43.6,
+      "computed_from": "recurring_obligations.csv + weekly_cashflow_summary.csv (income_cad only)",
+      "method": "share of 220 workers whose largest single obligation exceeds 2 x their median weekly income_cad"
+    }
+  },
+  "persona": {
+    "worker": {
+      "id": "W-0131",
+      "city": "Calgary",
+      "province": "AB",
+      "occupation": "Event / venue staff",
+      "pay_type": "hourly",
+      "typical_daily_net": 120.01,
+      "income_volatility": 0.5,
+      "tip_share": 0.1,
+      "household_size": 3,
+      "dependents": 2,
+      "tenure_months": 3,
+      "commute": "transit",
+      "rent_burden": "high",
+      "has_bank_account": true,
+      "uses_prepaid_card": false,
+      "has_side_gig": false
+    },
+    "shifts": [
+      {
+        "date": "2026-04-01",
+        "shift": "night",
+        "hours": 7.5,
+        "net": 65.69,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-02",
+        "shift": "split",
+        "hours": 9.9,
+        "net": 167.56,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-03",
+        "shift": "day",
+        "hours": 6.3,
+        "net": 116.73,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-06",
+        "shift": "split",
+        "hours": 9.5,
+        "net": 159.71,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-07",
+        "shift": "day",
+        "hours": 6.2,
+        "net": 96.06,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-09",
+        "shift": "night",
+        "hours": 7.9,
+        "net": 140.67,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-10",
+        "shift": "day",
+        "hours": 9.5,
+        "net": 129.08,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-13",
+        "shift": "split",
+        "hours": 4.4,
+        "net": 58.19,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-15",
+        "shift": "evening",
+        "hours": 4.8,
+        "net": 50.34,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-16",
+        "shift": "day",
+        "hours": 8.9,
+        "net": 128.23,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-17",
+        "shift": "day",
+        "hours": 4,
+        "net": 70.64,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-20",
+        "shift": "evening",
+        "hours": 7.7,
+        "net": 181.22,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-22",
+        "shift": "split",
+        "hours": 8.1,
+        "net": 126.39,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-23",
+        "shift": "split",
+        "hours": 5.3,
+        "net": 67.37,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-24",
+        "shift": "evening",
+        "hours": 5.4,
+        "net": 67.08,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-25",
+        "shift": "split",
+        "hours": 7.2,
+        "net": 107.73,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-27",
+        "shift": "day",
+        "hours": 5.3,
+        "net": 116.13,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-29",
+        "shift": "night",
+        "hours": 8.1,
+        "net": 90.81,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-04-30",
+        "shift": "split",
+        "hours": 6.6,
+        "net": 65.28,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-01",
+        "shift": "night",
+        "hours": 6.9,
+        "net": 102.28,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-02",
+        "shift": "split",
+        "hours": 7.5,
+        "net": 109.51,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-04",
+        "shift": "day",
+        "hours": 8.6,
+        "net": 148.69,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-05",
+        "shift": "day",
+        "hours": 6.5,
+        "net": 83.8,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-07",
+        "shift": "split",
+        "hours": 4.7,
+        "net": 83.18,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-12",
+        "shift": "evening",
+        "hours": 4.1,
+        "net": 81.8,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-14",
+        "shift": "evening",
+        "hours": 5.5,
+        "net": 102.98,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-15",
+        "shift": "split",
+        "hours": 5.1,
+        "net": 91.03,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-18",
+        "shift": "night",
+        "hours": 7.9,
+        "net": 74.03,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-19",
+        "shift": "evening",
+        "hours": 8.6,
+        "net": 110.92,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-21",
+        "shift": "evening",
+        "hours": 9.3,
+        "net": 179.42,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-22",
+        "shift": "night",
+        "hours": 4.3,
+        "net": 69.5,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-23",
+        "shift": "day",
+        "hours": 8.4,
+        "net": 104.14,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-24",
+        "shift": "day",
+        "hours": 8.3,
+        "net": 142.29,
+        "paid_same_day": true,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-25",
+        "shift": "day",
+        "hours": 5.9,
+        "net": 59.6,
+        "paid_same_day": false,
+        "confirmed": true
+      },
+      {
+        "date": "2026-05-28",
+        "shift": "split",
+        "hours": 8.1,
+        "net": 137.38,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-05-31",
+        "shift": "night",
+        "hours": 6.6,
+        "net": 71.53,
+        "paid_same_day": true,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-02",
+        "shift": "evening",
+        "hours": 5,
+        "net": 110.75,
+        "paid_same_day": true,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-03",
+        "shift": "evening",
+        "hours": 8.2,
+        "net": 175.58,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-05",
+        "shift": "night",
+        "hours": 7,
+        "net": 129.87,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-08",
+        "shift": "day",
+        "hours": 7,
+        "net": 131.18,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-12",
+        "shift": "night",
+        "hours": 10.3,
+        "net": 197.12,
+        "paid_same_day": true,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-15",
+        "shift": "night",
+        "hours": 7.9,
+        "net": 109.08,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-16",
+        "shift": "split",
+        "hours": 7.3,
+        "net": 131.49,
+        "paid_same_day": true,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-17",
+        "shift": "night",
+        "hours": 10,
+        "net": 107.29,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-18",
+        "shift": "night",
+        "hours": 9.4,
+        "net": 136.12,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-19",
+        "shift": "day",
+        "hours": 8.8,
+        "net": 147.48,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-22",
+        "shift": "night",
+        "hours": 6.6,
+        "net": 121.51,
+        "paid_same_day": true,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-25",
+        "shift": "day",
+        "hours": 6.2,
+        "net": 103.94,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-26",
+        "shift": "night",
+        "hours": 8.5,
+        "net": 106.95,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-27",
+        "shift": "split",
+        "hours": 9.8,
+        "net": 151.6,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-28",
+        "shift": "day",
+        "hours": 6.2,
+        "net": 101.09,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-29",
+        "shift": "split",
+        "hours": 4.4,
+        "net": 72.14,
+        "paid_same_day": false,
+        "confirmed": false
+      },
+      {
+        "date": "2026-06-30",
+        "shift": "day",
+        "hours": 8,
+        "net": 106.06,
+        "paid_same_day": false,
+        "confirmed": false
+      }
+    ],
+    "obligations": [
+      {
+        "name": "Rent",
+        "category": "housing",
+        "amount": 1310,
+        "due_day": 1,
+        "autopay": false,
+        "essential": true
+      },
+      {
+        "name": "Mobile phone",
+        "category": "phone",
+        "amount": 41,
+        "due_day": 14,
+        "autopay": true,
+        "essential": true
+      },
+      {
+        "name": "Utilities",
+        "category": "utilities",
+        "amount": 149,
+        "due_day": 25,
+        "autopay": true,
+        "essential": true
+      },
+      {
+        "name": "Installment / loan payment",
+        "category": "debt_payment",
+        "amount": 134,
+        "due_day": 21,
+        "autopay": true,
+        "essential": true
+      }
+    ],
+    "advances": [
+      {
+        "id": "A-00302",
+        "requested_at": "2026-04-10T17:51:00",
+        "amount": 56.42,
+        "fee": 1.99,
+        "status": "repaid",
+        "repayment_source": "manual",
+        "reason": "rent_gap"
+      },
+      {
+        "id": "A-00301",
+        "requested_at": "2026-04-15T22:03:00",
+        "amount": 26.95,
+        "fee": 1.99,
+        "status": "repaid",
+        "repayment_source": "manual",
+        "reason": "bill_due"
+      },
+      {
+        "id": "A-00303",
+        "requested_at": "2026-04-22T19:16:00",
+        "amount": 88.33,
+        "fee": 2.65,
+        "status": "repaid",
+        "repayment_source": "next_payroll",
+        "reason": "emergency"
+      },
+      {
+        "id": "A-00299",
+        "requested_at": "2026-05-14T17:27:00",
+        "amount": 59.81,
+        "fee": 4.19,
+        "status": "repaid",
+        "repayment_source": "next_payroll",
+        "reason": "groceries"
+      },
+      {
+        "id": "A-00304",
+        "requested_at": "2026-05-28T19:01:00",
+        "amount": 55.92,
+        "fee": 2.8,
+        "status": "repaid",
+        "repayment_source": "next_payroll",
+        "reason": "childcare"
+      },
+      {
+        "id": "A-00306",
+        "requested_at": "2026-06-17T17:29:00",
+        "amount": 61.12,
+        "fee": 1.99,
+        "status": "repaid",
+        "repayment_source": "same_day_earnings",
+        "reason": "rent_gap"
+      },
+      {
+        "id": "A-00305",
+        "requested_at": "2026-06-22T19:56:00",
+        "amount": 40.86,
+        "fee": 2.04,
+        "status": "repaid",
+        "repayment_source": "next_payroll",
+        "reason": "bill_due"
+      },
+      {
+        "id": "A-00300",
+        "requested_at": "2026-06-30T20:08:00",
+        "amount": 78.45,
+        "fee": 5.49,
+        "status": "repaid",
+        "repayment_source": "manual",
+        "reason": "other"
+      }
+    ],
+    "shift_count": 53,
+    "net_hourly": 15.54,
+    "mean_shift_net": 111.25,
+    "mean_hours": 7.2,
+    "same_day_pay_rate": 0.36,
+    "monthly_income": 1965.41,
+    "monthly_obligations": 1634,
+    "advance_fee_min": 1.99,
+    "advance_fee_median": 2.35,
+    "advance_fee_max": 5.49,
+    "advance_fees_total": 23.14,
+    "negative_days": 11,
+    "ledger_days": 91,
+    "grocery_monthly_mean": 33.53
+  },
+  "persona_ledger": [
+    {
+      "date": "2026-04-01",
+      "inflow": 0,
+      "outflow": 1310,
+      "projected_balance": -410,
+      "confidence": "confirmed",
+      "is_cliff": true,
+      "shortfall": 410,
+      "obligations": [
+        {
+          "name": "Rent",
+          "category": "housing",
+          "amount": 1310,
+          "due_day": 1,
+          "autopay": false,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "inflow": 167.56,
+      "outflow": 0,
+      "projected_balance": -242.44,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 242.44,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-03",
+      "inflow": 116.73,
+      "outflow": 0,
+      "projected_balance": -125.71,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 125.71,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-04",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": -125.71,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 125.71,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-05",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": -125.71,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 125.71,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-06",
+      "inflow": 225.4,
+      "outflow": 0,
+      "projected_balance": 99.69,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-07",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 99.69,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-08",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 99.69,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-09",
+      "inflow": 140.67,
+      "outflow": 0,
+      "projected_balance": 240.36,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-10",
+      "inflow": 129.08,
+      "outflow": 0,
+      "projected_balance": 369.44,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-11",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 369.44,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-12",
+      "inflow": 96.06,
+      "outflow": 0,
+      "projected_balance": 465.5,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-13",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 465.5,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-14",
+      "inflow": 0,
+      "outflow": 41,
+      "projected_balance": 424.5,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Mobile phone",
+          "category": "phone",
+          "amount": 41,
+          "due_day": 14,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "inflow": 50.34,
+      "outflow": 0,
+      "projected_balance": 474.84,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-16",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 474.84,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-17",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 474.84,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-18",
+      "inflow": 58.19,
+      "outflow": 0,
+      "projected_balance": 533.03,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-19",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 533.03,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-20",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 533.03,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-21",
+      "inflow": 128.23,
+      "outflow": 134,
+      "projected_balance": 527.26,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Installment / loan payment",
+          "category": "debt_payment",
+          "amount": 134,
+          "due_day": 21,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-04-22",
+      "inflow": 197.03,
+      "outflow": 0,
+      "projected_balance": 724.29,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-23",
+      "inflow": 67.37,
+      "outflow": 0,
+      "projected_balance": 791.66,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-24",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 791.66,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-25",
+      "inflow": 181.22,
+      "outflow": 149,
+      "projected_balance": 823.88,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Utilities",
+          "category": "utilities",
+          "amount": 149,
+          "due_day": 25,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 823.88,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-27",
+      "inflow": 116.13,
+      "outflow": 0,
+      "projected_balance": 940.01,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-28",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 940.01,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-29",
+      "inflow": 157.89,
+      "outflow": 0,
+      "projected_balance": 1097.9,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-04-30",
+      "inflow": 107.73,
+      "outflow": 0,
+      "projected_balance": 1205.63,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-01",
+      "inflow": 0,
+      "outflow": 1310,
+      "projected_balance": -104.37,
+      "confidence": "confirmed",
+      "is_cliff": true,
+      "shortfall": 104.37,
+      "obligations": [
+        {
+          "name": "Rent",
+          "category": "housing",
+          "amount": 1310,
+          "due_day": 1,
+          "autopay": false,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": -104.37,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 104.37,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-03",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": -104.37,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 104.37,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-04",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": -104.37,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 104.37,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-05",
+      "inflow": 65.28,
+      "outflow": 0,
+      "projected_balance": -39.09,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 39.09,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-06",
+      "inflow": 102.28,
+      "outflow": 0,
+      "projected_balance": 63.19,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-07",
+      "inflow": 109.51,
+      "outflow": 0,
+      "projected_balance": 172.7,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-08",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 172.7,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-09",
+      "inflow": 148.69,
+      "outflow": 0,
+      "projected_balance": 321.39,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-10",
+      "inflow": 83.8,
+      "outflow": 0,
+      "projected_balance": 405.19,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-11",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 405.19,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-12",
+      "inflow": 83.18,
+      "outflow": 0,
+      "projected_balance": 488.37,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-13",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 488.37,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-14",
+      "inflow": 102.98,
+      "outflow": 41,
+      "projected_balance": 550.35,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Mobile phone",
+          "category": "phone",
+          "amount": 41,
+          "due_day": 14,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-05-15",
+      "inflow": 91.03,
+      "outflow": 0,
+      "projected_balance": 641.38,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-16",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 641.38,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-17",
+      "inflow": 81.8,
+      "outflow": 0,
+      "projected_balance": 723.18,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-18",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 723.18,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-19",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 723.18,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-20",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 723.18,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-21",
+      "inflow": 0,
+      "outflow": 134,
+      "projected_balance": 589.18,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Installment / loan payment",
+          "category": "debt_payment",
+          "amount": 134,
+          "due_day": 21,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "inflow": 69.5,
+      "outflow": 0,
+      "projected_balance": 658.68,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-23",
+      "inflow": 74.03,
+      "outflow": 0,
+      "projected_balance": 732.71,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-24",
+      "inflow": 253.21,
+      "outflow": 0,
+      "projected_balance": 985.92,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-25",
+      "inflow": 0,
+      "outflow": 149,
+      "projected_balance": 836.92,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Utilities",
+          "category": "utilities",
+          "amount": 149,
+          "due_day": 25,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "inflow": 179.42,
+      "outflow": 0,
+      "projected_balance": 1016.34,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-27",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 1016.34,
+      "confidence": "confirmed",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-28",
+      "inflow": 104.14,
+      "outflow": 0,
+      "projected_balance": 1120.48,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-29",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 1120.48,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-30",
+      "inflow": 59.6,
+      "outflow": 0,
+      "projected_balance": 1180.08,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-05-31",
+      "inflow": 71.53,
+      "outflow": 0,
+      "projected_balance": 1251.61,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-01",
+      "inflow": 0,
+      "outflow": 1310,
+      "projected_balance": -58.39,
+      "confidence": "estimated",
+      "is_cliff": true,
+      "shortfall": 58.39,
+      "obligations": [
+        {
+          "name": "Rent",
+          "category": "housing",
+          "amount": 1310,
+          "due_day": 1,
+          "autopay": false,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-06-02",
+      "inflow": 248.13,
+      "outflow": 0,
+      "projected_balance": 189.74,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-03",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 189.74,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-04",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 189.74,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-05",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 189.74,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-06",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 189.74,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-07",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 189.74,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-08",
+      "inflow": 175.58,
+      "outflow": 0,
+      "projected_balance": 365.32,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-09",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 365.32,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-10",
+      "inflow": 129.87,
+      "outflow": 0,
+      "projected_balance": 495.19,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-11",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 495.19,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-12",
+      "inflow": 197.12,
+      "outflow": 0,
+      "projected_balance": 692.31,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-13",
+      "inflow": 131.18,
+      "outflow": 0,
+      "projected_balance": 823.49,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-14",
+      "inflow": 0,
+      "outflow": 41,
+      "projected_balance": 782.49,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Mobile phone",
+          "category": "phone",
+          "amount": 41,
+          "due_day": 14,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-06-15",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 782.49,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-16",
+      "inflow": 131.49,
+      "outflow": 0,
+      "projected_balance": 913.98,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-17",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 913.98,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-18",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 913.98,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-19",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 913.98,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-20",
+      "inflow": 109.08,
+      "outflow": 0,
+      "projected_balance": 1023.06,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-21",
+      "inflow": 0,
+      "outflow": 134,
+      "projected_balance": 889.06,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Installment / loan payment",
+          "category": "debt_payment",
+          "amount": 134,
+          "due_day": 21,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-06-22",
+      "inflow": 228.8,
+      "outflow": 0,
+      "projected_balance": 1117.86,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-23",
+      "inflow": 136.12,
+      "outflow": 0,
+      "projected_balance": 1253.98,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-24",
+      "inflow": 147.48,
+      "outflow": 0,
+      "projected_balance": 1401.46,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-25",
+      "inflow": 0,
+      "outflow": 149,
+      "projected_balance": 1252.46,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": [
+        {
+          "name": "Utilities",
+          "category": "utilities",
+          "amount": 149,
+          "due_day": 25,
+          "autopay": true,
+          "essential": true
+        }
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 1252.46,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-27",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 1252.46,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-28",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 1252.46,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-29",
+      "inflow": 0,
+      "outflow": 0,
+      "projected_balance": 1252.46,
+      "confidence": "estimated",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    },
+    {
+      "date": "2026-06-30",
+      "inflow": 103.94,
+      "outflow": 0,
+      "projected_balance": 1356.4,
+      "confidence": "stale",
+      "is_cliff": false,
+      "shortfall": 0,
+      "obligations": []
+    }
+  ]
+}
